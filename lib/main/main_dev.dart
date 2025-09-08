@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ims/configuration/app_logger.dart';
 
 void main() {
+  AppLogger.configure(isProduction: false);
+  final _logger = AppLogger.getLogger("main_dev.dart");
   runApp(const MyApp());
 }
 
