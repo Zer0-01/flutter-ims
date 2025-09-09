@@ -1,10 +1,10 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ims/l10n/app_localizations.dart';
 import 'package:flutter_ims/presentation/common_blocs/language_bloc/language_bloc.dart';
 import 'package:flutter_ims/routes/app_router.dart';
 import 'package:flutter_ims/routes/app_router_observer.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class App extends StatelessWidget {
   final String language;
