@@ -95,11 +95,35 @@ abstract class AppLocalizations {
     Locale('ms')
   ];
 
-  /// The conventional newborn programmer greeting
+  /// No description provided for @helloWorld.
   ///
   /// In en, this message translates to:
   /// **'Hello World!'**
   String get helloWorld;
+
+  /// No description provided for @sign_in_to_your_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to your Account'**
+  String get sign_in_to_your_account;
+
+  /// No description provided for @dont_have_an_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account?'**
+  String get dont_have_an_account;
+
+  /// No description provided for @sign_up.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Up'**
+  String get sign_up;
+
+  /// No description provided for @forgot_your_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot your password?'**
+  String get forgot_your_password;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

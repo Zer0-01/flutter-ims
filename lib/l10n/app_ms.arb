@@ -1,4 +1,8 @@
 {
     "@@locale": "ms",
-    "helloWorld": "Hello World!"
+    "helloWorld": "Hello World!",
+    "sign_in_to_your_account": "Log masuk ke Akaun anda",
+    "dont_have_an_account": "Tiada akaun?",
+    "sign_up": "Daftar",
+    "forgot_your_password": "Lupa kata laluan?"
 }

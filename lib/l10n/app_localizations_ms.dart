@@ -10,4 +10,16 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get helloWorld => 'Hello World!';
+
+  @override
+  String get sign_in_to_your_account => 'Log masuk ke Akaun anda';
+
+  @override
+  String get dont_have_an_account => 'Tiada akaun?';
+
+  @override
+  String get sign_up => 'Daftar';
+
+  @override
+  String get forgot_your_password => 'Lupa kata laluan?';
 }
