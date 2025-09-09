@@ -18,7 +18,7 @@ class LoginButtonWidget extends StatelessWidget {
             ),
           ),
           onPressed: () {},
-          child: Text("Login"),
+          child: const Text("Login"),
         ),
       ),
     );

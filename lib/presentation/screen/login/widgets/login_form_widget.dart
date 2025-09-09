@@ -21,14 +21,14 @@ class LoginFormWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide.none,
                 ),
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                prefixIcon: const Padding(
+                  padding: EdgeInsets.only(left: 8.0),
                   child: Icon(Icons.email_outlined, color: Colors.redAccent),
                 ),
-                prefixIconConstraints: BoxConstraints(),
+                prefixIconConstraints: const BoxConstraints(),
               ),
             ),
-            Divider(),
+            const Divider(),
             TextFormField(
               decoration: InputDecoration(
                 isDense: true,
@@ -40,11 +40,11 @@ class LoginFormWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide.none,
                 ),
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                prefixIcon: const Padding(
+                  padding: EdgeInsets.only(left: 8.0),
                   child: Icon(Icons.lock_outline, color: Colors.redAccent),
                 ),
-                prefixIconConstraints: BoxConstraints(),
+                prefixIconConstraints: const BoxConstraints(),
               ),
             ),
           ],

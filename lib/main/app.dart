@@ -62,7 +62,7 @@ class App extends StatelessWidget {
     const onInverseSurface = Colors.white;
     const inversePrimary = Color(0xff55c89d);
 
-    final colorScheme = const ColorScheme(
+    const colorScheme = ColorScheme(
       brightness: Brightness.light,
       primary: primary,
       onPrimary: onPrimary,
