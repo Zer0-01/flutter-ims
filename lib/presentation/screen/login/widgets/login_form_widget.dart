@@ -12,6 +12,8 @@ class LoginFormWidget extends StatelessWidget {
           children: [
             TextFormField(
               decoration: InputDecoration(
+                hintText: "Enter your email",
+                hintStyle: TextStyle(color: Colors.grey.shade300),
                 isDense: true,
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -28,9 +30,11 @@ class LoginFormWidget extends StatelessWidget {
                 prefixIconConstraints: const BoxConstraints(),
               ),
             ),
-            const Divider(),
+            const Divider(height: 0),
             TextFormField(
               decoration: InputDecoration(
+                hintText: "Enter your password",
+                hintStyle: TextStyle(color: Colors.grey.shade300),
                 isDense: true,
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),

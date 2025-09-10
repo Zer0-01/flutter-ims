@@ -1,6 +1,8 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ims/presentation/screen/register/register_screen.dart';
 
+@RoutePage()
 class RegisterSetupScreen extends StatelessWidget {
   const RegisterSetupScreen({super.key});
 

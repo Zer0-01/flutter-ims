@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ims/routes/app_router.gr.dart';
 import 'package:flutter_ims/utils/extension.dart';
 
 class SignUpWidget extends StatelessWidget {
@@ -16,11 +18,14 @@ class SignUpWidget extends StatelessWidget {
             context,
           ).textTheme.bodyMedium?.copyWith(color: Colors.white),
         ),
-        Text(
-          context.l10n.sign_up,
-          style: Theme.of(
-            context,
-          ).textTheme.bodyMedium?.copyWith(color: Colors.redAccent),
+        GestureDetector(
+          onTap: () => context.router.push(const RegisterSetupRoute()),
+          child: Text(
+            context.l10n.sign_up,
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium?.copyWith(color: Colors.redAccent),
+          ),
         ),
       ],
     );
