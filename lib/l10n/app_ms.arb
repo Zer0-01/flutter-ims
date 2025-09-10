@@ -1,8 +1,21 @@
 {
     "@@locale": "ms",
     "helloWorld": "Hello World!",
+    "@helloWorld": {},
     "sign_in_to_your_account": "Log masuk ke Akaun anda",
+    "@sign_in_to_your_account": {},
     "dont_have_an_account": "Tiada akaun?",
+    "@dont_have_an_account": {},
     "sign_up": "Daftar",
-    "forgot_your_password": "Lupa kata laluan?"
+    "@sign_up": {},
+    "forgot_your_password": "Lupa kata laluan?",
+    "@forgot_your_password": {},
+    "create_account": "Create Account",
+    "@create_account": {},
+    "already_have_an_account": "Already have an account?",
+    "@already_have_an_account": {},
+    "login": "Login",
+    "@login": {},
+    "register": "Daftar",
+    "@register": {}
 }

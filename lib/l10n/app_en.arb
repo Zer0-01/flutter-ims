@@ -9,5 +9,13 @@
     "sign_up": "Sign Up",
     "@sign_up": {},
     "forgot_your_password": "Forgot your password?",
-    "@forgot_your_password": {}
+    "@forgot_your_password": {},
+    "create_account": "Create Account",
+    "@create_account": {},
+    "already_have_an_account": "Already have an account?",
+    "@already_have_an_account": {},
+    "login": "Login",
+    "@login": {},
+    "register": "Register",
+    "@register": {}
 }
