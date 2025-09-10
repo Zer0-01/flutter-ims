@@ -5,8 +5,36 @@ import 'package:flutter_ims/presentation/screen/register/widgets/register_button
 import 'package:flutter_ims/presentation/screen/register/widgets/register_form_widget.dart';
 import 'package:flutter_ims/presentation/screen/register/widgets/register_headline_widget.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  late final TextEditingController _nameController;
+  late final TextEditingController _emailController;
+  late final TextEditingController _passwordController;
+  late final TextEditingController _confirmPasswordController;
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController();
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+    _confirmPasswordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +47,7 @@ class RegisterScreen extends StatelessWidget {
           icon: const Icon(Icons.chevron_left, color: Colors.white),
         ),
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -27,10 +55,15 @@ class RegisterScreen extends StatelessWidget {
               spacing: 16,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                RegisterHeadlineWidget(),
-                LoginWidget(),
-                RegisterFormWidget(),
-                RegisterButtonWidget(),
+                const RegisterHeadlineWidget(),
+                const LoginWidget(),
+                RegisterFormWidget(
+                  nameController: _nameController,
+                  emailController: _emailController,
+                  passwordController: _passwordController,
+                  confirmPasswordController: _confirmPasswordController,
+                ),
+                const RegisterButtonWidget(),
               ],
             ),
           ),

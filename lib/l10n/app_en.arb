@@ -17,5 +17,13 @@
     "login": "Login",
     "@login": {},
     "register": "Register",
-    "@register": {}
+    "@register": {},
+    "name": "Name",
+    "@name": {},
+    "email": "Email",
+    "@email": {},
+    "password": "Password",
+    "@password": {},
+    "confirm_password": "Confirm Password",
+    "@confirm_password": {}
 }

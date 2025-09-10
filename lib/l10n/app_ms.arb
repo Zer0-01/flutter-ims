@@ -17,5 +17,13 @@
     "login": "Login",
     "@login": {},
     "register": "Daftar",
-    "@register": {}
+    "@register": {},
+    "name": "Nama",
+    "@name": {},
+    "email": "Emel",
+    "@email": {},
+    "password": "Kata Laluan",
+    "@password": {},
+    "confirm_password": "Sahkan Kata Laluan",
+    "@confirm_password": {}
 }

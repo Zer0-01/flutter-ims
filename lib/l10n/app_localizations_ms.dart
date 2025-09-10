@@ -34,4 +34,16 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get register => 'Daftar';
+
+  @override
+  String get name => 'Nama';
+
+  @override
+  String get email => 'Emel';
+
+  @override
+  String get password => 'Kata Laluan';
+
+  @override
+  String get confirm_password => 'Sahkan Kata Laluan';
 }
