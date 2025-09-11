@@ -10,22 +10,23 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:flutter_ims/presentation/screen/login/login_screen.dart' as _i1;
+import 'package:flutter_ims/presentation/screen/login/login_setup_screen.dart'
+    as _i1;
 import 'package:flutter_ims/presentation/screen/register/register_setup_screen.dart'
     as _i2;
 
 /// generated route for
-/// [_i1.LoginScreen]
-class LoginRoute extends _i3.PageRouteInfo<void> {
-  const LoginRoute({List<_i3.PageRouteInfo>? children})
-    : super(LoginRoute.name, initialChildren: children);
+/// [_i1.LoginSetupScreen]
+class LoginSetupRoute extends _i3.PageRouteInfo<void> {
+  const LoginSetupRoute({List<_i3.PageRouteInfo>? children})
+    : super(LoginSetupRoute.name, initialChildren: children);
 
-  static const String name = 'LoginRoute';
+  static const String name = 'LoginSetupRoute';
 
   static _i3.PageInfo page = _i3.PageInfo(
     name,
     builder: (data) {
-      return const _i1.LoginScreen();
+      return const _i1.LoginSetupScreen();
     },
   );
 }

@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class LoginFormWidget extends StatelessWidget {
-  const LoginFormWidget({super.key});
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+
+  const LoginFormWidget({
+    super.key,
+    required this.emailController,
+    required this.passwordController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +18,7 @@ class LoginFormWidget extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
+              controller: emailController,
               decoration: InputDecoration(
                 hintText: "Enter your email",
                 hintStyle: TextStyle(color: Colors.grey.shade300),
@@ -32,6 +40,7 @@ class LoginFormWidget extends StatelessWidget {
             ),
             const Divider(height: 0),
             TextFormField(
+              controller: passwordController,
               decoration: InputDecoration(
                 hintText: "Enter your password",
                 hintStyle: TextStyle(color: Colors.grey.shade300),
