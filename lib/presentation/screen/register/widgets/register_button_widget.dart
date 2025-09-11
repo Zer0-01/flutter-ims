@@ -70,7 +70,15 @@ class RegisterButtonWidget extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              if (formKey.currentState!.validate()) {}
+              if (formKey.currentState!.validate()) {
+                context.read<RegisterBloc>().add(
+                  OnPressedRegisterEvent(
+                    name: nameController.text,
+                    email: emailController.text,
+                    password: passwordController.text,
+                  ),
+                );
+              }
             },
             child: Text(context.l10n.register),
           ),

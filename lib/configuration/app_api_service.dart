@@ -21,10 +21,20 @@ class AppApiService {
     final Dio dio = Dio(
       BaseOptions(
         baseUrl: baseUrl,
-        contentType: contentType ?? Headers.formUrlEncodedContentType,
+        contentType: contentType ?? Headers.jsonContentType,
       ),
     );
 
+    dio.interceptors.add(
+      LogInterceptor(
+        request: true,
+        requestHeader: true,
+        requestBody: true,
+        responseHeader: false,
+        responseBody: true,
+        error: true,
+      ),
+    );
     switch (method) {
       case DioMethod.post:
         return dio.post(endpoint, data: param ?? formData);
