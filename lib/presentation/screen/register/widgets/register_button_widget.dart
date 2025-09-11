@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ims/presentation/common_widgets/app_loading_dialog_widget.dart';
 import 'package:flutter_ims/presentation/screen/register/bloc/register_bloc.dart';
-import 'package:flutter_ims/utils/animation_constant.dart';
 import 'package:flutter_ims/utils/extension.dart';
-import 'package:lottie/lottie.dart';
 
 class RegisterButtonWidget extends StatelessWidget {
   final TextEditingController nameController;
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final TextEditingController confirmPasswordController;
+  final GlobalKey<FormState> formKey;
 
   const RegisterButtonWidget({
     super.key,
@@ -18,6 +17,7 @@ class RegisterButtonWidget extends StatelessWidget {
     required this.emailController,
     required this.passwordController,
     required this.confirmPasswordController,
+    required this.formKey,
   });
 
   @override
@@ -62,13 +62,15 @@ class RegisterButtonWidget extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              context.read<RegisterBloc>().add(
-                OnPressedRegisterEvent(
-                  name: nameController.text,
-                  email: emailController.text,
-                  password: passwordController.text,
-                ),
-              );
+              if (formKey.currentState!.validate()) {
+                context.read<RegisterBloc>().add(
+                  OnPressedRegisterEvent(
+                    name: nameController.text,
+                    email: emailController.text,
+                    password: passwordController.text,
+                  ),
+                );
+              }
             },
             child: Text(context.l10n.register),
           ),

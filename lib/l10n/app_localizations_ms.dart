@@ -46,4 +46,28 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get confirm_password => 'Sahkan Kata Laluan';
+
+  @override
+  String get name_is_required => 'Nama diperlukan';
+
+  @override
+  String get email_is_required => 'Emel diperlukan';
+
+  @override
+  String get email_must_be_valid => 'Emel mestilah sah';
+
+  @override
+  String get password_is_required => 'Kata laluan diperlukan';
+
+  @override
+  String get password_must_be_at_least_6_characters => 'Kata laluan harus sekurang-kurangnya enam aksara';
+
+  @override
+  String get password_must_be_alpha_numeric => 'Kata laluan harus alpha-numeric';
+
+  @override
+  String get confirm_password_is_required => 'Sahkan Kata Laluan diperlukan';
+
+  @override
+  String get passwords_do_not_match => 'Kata laluan tidak sepadan';
 }

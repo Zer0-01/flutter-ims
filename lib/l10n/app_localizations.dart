@@ -172,6 +172,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Confirm Password'**
   String get confirm_password;
+
+  /// No description provided for @name_is_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Name is required'**
+  String get name_is_required;
+
+  /// No description provided for @email_is_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Email is required'**
+  String get email_is_required;
+
+  /// No description provided for @email_must_be_valid.
+  ///
+  /// In en, this message translates to:
+  /// **'Email must be valid'**
+  String get email_must_be_valid;
+
+  /// No description provided for @password_is_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Password is required'**
+  String get password_is_required;
+
+  /// No description provided for @password_must_be_at_least_6_characters.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get password_must_be_at_least_6_characters;
+
+  /// No description provided for @password_must_be_alpha_numeric.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be alpha numeric'**
+  String get password_must_be_alpha_numeric;
+
+  /// No description provided for @confirm_password_is_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password is required'**
+  String get confirm_password_is_required;
+
+  /// No description provided for @passwords_do_not_match.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get passwords_do_not_match;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -46,4 +46,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get confirm_password => 'Confirm Password';
+
+  @override
+  String get name_is_required => 'Name is required';
+
+  @override
+  String get email_is_required => 'Email is required';
+
+  @override
+  String get email_must_be_valid => 'Email must be valid';
+
+  @override
+  String get password_is_required => 'Password is required';
+
+  @override
+  String get password_must_be_at_least_6_characters => 'Password must be at least 6 characters';
+
+  @override
+  String get password_must_be_alpha_numeric => 'Password must be alpha numeric';
+
+  @override
+  String get confirm_password_is_required => 'Confirm Password is required';
+
+  @override
+  String get passwords_do_not_match => 'Passwords do not match';
 }
