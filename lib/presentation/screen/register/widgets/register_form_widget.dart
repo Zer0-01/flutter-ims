@@ -23,6 +23,7 @@ class RegisterFormWidget extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
+              controller: nameController,
               decoration: InputDecoration(
                 hintText: context.l10n.name,
                 hintStyle: TextStyle(color: Colors.grey.shade300),
@@ -44,6 +45,7 @@ class RegisterFormWidget extends StatelessWidget {
             ),
             const Divider(height: 0),
             TextFormField(
+              controller: emailController,
               decoration: InputDecoration(
                 hintText: context.l10n.email,
                 hintStyle: TextStyle(color: Colors.grey.shade300),
@@ -65,6 +67,7 @@ class RegisterFormWidget extends StatelessWidget {
             ),
             const Divider(height: 0),
             TextFormField(
+              controller: passwordController,
               decoration: InputDecoration(
                 hintText: context.l10n.password,
                 hintStyle: TextStyle(color: Colors.grey.shade300),
@@ -86,6 +89,7 @@ class RegisterFormWidget extends StatelessWidget {
             ),
             const Divider(height: 0),
             TextFormField(
+              controller: confirmPasswordController,
               decoration: InputDecoration(
                 hintText: context.l10n.confirm_password,
                 hintStyle: TextStyle(color: Colors.grey.shade300),

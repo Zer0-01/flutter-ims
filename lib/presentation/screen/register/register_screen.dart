@@ -63,7 +63,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   passwordController: _passwordController,
                   confirmPasswordController: _confirmPasswordController,
                 ),
-                const RegisterButtonWidget(),
+                RegisterButtonWidget(
+                  nameController: _nameController,
+                  emailController: _emailController,
+                  passwordController: _passwordController,
+                  confirmPasswordController: _confirmPasswordController,
+                ),
               ],
             ),
           ),
