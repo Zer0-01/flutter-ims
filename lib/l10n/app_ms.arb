@@ -41,5 +41,11 @@
     "confirm_password_is_required": "Sahkan Kata Laluan diperlukan",
     "@confirm_password_is_required": {},
     "passwords_do_not_match": "Kata laluan tidak sepadan",
-    "@passwords_do_not_match": {}
+    "@passwords_do_not_match": {},
+    "welcome_aboard": "Selamat Datang!",
+    "@welcome_aboard": {},
+    "you_can_now_log_in_and_start_exploring": "Anda kini boleh log masuk dan mula meneroka.",
+    "@you_can_now_log_in_and_start_exploring": {},
+    "continue_to_login": "Teruskan ke Log Masuk",
+    "@continue_to_login": {}
 }

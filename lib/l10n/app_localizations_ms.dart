@@ -70,4 +70,13 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get passwords_do_not_match => 'Kata laluan tidak sepadan';
+
+  @override
+  String get welcome_aboard => 'Selamat Datang!';
+
+  @override
+  String get you_can_now_log_in_and_start_exploring => 'Anda kini boleh log masuk dan mula meneroka.';
+
+  @override
+  String get continue_to_login => 'Teruskan ke Log Masuk';
 }

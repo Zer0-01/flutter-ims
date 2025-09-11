@@ -70,4 +70,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwords_do_not_match => 'Passwords do not match';
+
+  @override
+  String get welcome_aboard => 'Welcome Aboard!';
+
+  @override
+  String get you_can_now_log_in_and_start_exploring => 'You can now log in and start exploring.';
+
+  @override
+  String get continue_to_login => 'Continue to Login';
 }

@@ -41,7 +41,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       password: password,
     );
 
-    // await _postRegister(emit, registerDtoRequest: registerDtoRequest);
+    await _postRegister(emit, registerDtoRequest: registerDtoRequest);
   }
 
   void _onPressedObscurePassword(

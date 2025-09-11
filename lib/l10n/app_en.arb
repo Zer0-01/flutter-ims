@@ -41,5 +41,11 @@
     "confirm_password_is_required": "Confirm Password is required",
     "@confirm_password_is_required": {},
     "passwords_do_not_match": "Passwords do not match",
-    "@passwords_do_not_match": {}
+    "@passwords_do_not_match": {},
+    "welcome_aboard": "Welcome Aboard!",
+    "@welcome_aboard": {},
+    "you_can_now_log_in_and_start_exploring": "You can now log in and start exploring.",
+    "@you_can_now_log_in_and_start_exploring": {},
+    "continue_to_login": "Continue to Login",
+    "@continue_to_login": {}
 }

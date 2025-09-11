@@ -220,6 +220,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Passwords do not match'**
   String get passwords_do_not_match;
+
+  /// No description provided for @welcome_aboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Aboard!'**
+  String get welcome_aboard;
+
+  /// No description provided for @you_can_now_log_in_and_start_exploring.
+  ///
+  /// In en, this message translates to:
+  /// **'You can now log in and start exploring.'**
+  String get you_can_now_log_in_and_start_exploring;
+
+  /// No description provided for @continue_to_login.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue to Login'**
+  String get continue_to_login;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

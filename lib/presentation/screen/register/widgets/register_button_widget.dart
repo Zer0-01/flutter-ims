@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ims/presentation/common_widgets/app_loading_dialog_widget.dart';
 import 'package:flutter_ims/presentation/screen/register/bloc/register_bloc.dart';
+import 'package:flutter_ims/presentation/screen/register/widgets/register_success_dialog_widget.dart';
 import 'package:flutter_ims/utils/extension.dart';
 
 class RegisterButtonWidget extends StatelessWidget {
@@ -26,9 +28,10 @@ class RegisterButtonWidget extends StatelessWidget {
       listenWhen:
           (previous, current) =>
               previous.postRegisterStatus != current.postRegisterStatus,
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state.postRegisterStatus == PostRegisterStatus.loading) {
           showDialog(
+            barrierDismissible: false,
             context: context,
             builder: (context) => const AppLoadingDialogWidget(),
           );
@@ -44,8 +47,13 @@ class RegisterButtonWidget extends StatelessWidget {
 
         if (state.postRegisterStatus == PostRegisterStatus.success) {
           Navigator.pop(context);
-          const snackBar = SnackBar(content: Text('Success'));
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          await showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (context) => const RegisterSuccessDialogWidget(),
+          );
+          if (!context.mounted) return;
+          context.router.pop();
           return;
         }
       },
@@ -62,15 +70,7 @@ class RegisterButtonWidget extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              if (formKey.currentState!.validate()) {
-                context.read<RegisterBloc>().add(
-                  OnPressedRegisterEvent(
-                    name: nameController.text,
-                    email: emailController.text,
-                    password: passwordController.text,
-                  ),
-                );
-              }
+              if (formKey.currentState!.validate()) {}
             },
             child: Text(context.l10n.register),
           ),

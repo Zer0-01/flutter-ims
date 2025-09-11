@@ -7,19 +7,23 @@ class AppLoadingDialogWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      backgroundColor: Colors.transparent,
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.2,
-        width: MediaQuery.of(context).size.height * 0.2,
-        child: Lottie.asset(
-          AnimationConstant.animationDeliveryTruckLoading,
-          delegates: LottieDelegates(
-            values: [
-              ValueDelegate.colorFilter(const [
-                '**',
-              ], value: const ColorFilter.mode(Colors.white, BlendMode.srcIn)),
-            ],
+    return PopScope(
+      canPop: false,
+      child: Dialog(
+        backgroundColor: Colors.transparent,
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height * 0.2,
+          width: MediaQuery.of(context).size.height * 0.2,
+          child: Lottie.asset(
+            AnimationConstant.animationDeliveryTruckLoading,
+            delegates: LottieDelegates(
+              values: [
+                ValueDelegate.colorFilter(
+                  const ['**'],
+                  value: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                ),
+              ],
+            ),
           ),
         ),
       ),
