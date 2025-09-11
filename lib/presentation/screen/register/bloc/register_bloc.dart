@@ -17,6 +17,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     : _userRepository = userRepository,
       super(const RegisterState()) {
     on<OnPressedRegisterEvent>(_onPressedRegister);
+    on<OnPressedObscurePasswordEvent>(_onPressedObscurePassword);
+    on<OnPressedObscureConfirmPasswordEvent>(_onPressedObscureConfirmPassword);
   }
 
   //PRIVATE EVENTS//
@@ -40,6 +42,28 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     );
 
     // await _postRegister(emit, registerDtoRequest: registerDtoRequest);
+  }
+
+  void _onPressedObscurePassword(
+    OnPressedObscurePasswordEvent event,
+    Emitter<RegisterState> emit,
+  ) {
+    _logger.debug("onPressedObscurePassword");
+    _logger.debug("isObscurePassword: ${event.isObscurePassword}");
+    emit(state.copyWith(isObscurePassword: !event.isObscurePassword));
+  }
+
+  void _onPressedObscureConfirmPassword(
+    OnPressedObscureConfirmPasswordEvent event,
+    Emitter<RegisterState> emit,
+  ) {
+    _logger.debug("onPressedObscureConfirmPassword");
+    _logger.debug(
+      "isObscureConfirmPassword: ${event.isObscureConfirmPassword}",
+    );
+    emit(
+      state.copyWith(isObscureConfirmPassword: !event.isObscureConfirmPassword),
+    );
   }
 
   //PRIVATE METHODS//
