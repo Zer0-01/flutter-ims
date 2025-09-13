@@ -15,6 +15,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late final TextEditingController _emailController;
   late final TextEditingController _passwordController;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -37,23 +38,27 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              spacing: 16,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const LoginHeadlineWidget(),
-                const SignUpWidget(),
-                LoginFormWidget(
-                  emailController: _emailController,
-                  passwordController: _passwordController,
-                ),
-                const ForgotPasswordWidget(),
-                LoginButtonWidget(
-                  emailController: _emailController,
-                  passwordController: _passwordController,
-                ),
-              ],
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                spacing: 16,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const LoginHeadlineWidget(),
+                  const SignUpWidget(),
+                  LoginFormWidget(
+                    emailController: _emailController,
+                    passwordController: _passwordController,
+                  ),
+                  const ForgotPasswordWidget(),
+                  LoginButtonWidget(
+                    emailController: _emailController,
+                    passwordController: _passwordController,
+                    formKey: _formKey,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

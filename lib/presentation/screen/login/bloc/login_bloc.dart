@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ims/configuration/app_logger.dart';
+import 'package:flutter_ims/configuration/app_secure_storage.dart';
 import 'package:flutter_ims/data/models/request/login_dto_request.dart';
 import 'package:flutter_ims/data/models/response/login_dto_response.dart';
 import 'package:flutter_ims/data/repository/auth_repository.dart';
@@ -11,12 +12,14 @@ part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AppLogger _logger = AppLogger.getLogger("login_bloc.dart");
+  final AppSecureStorage _appSecureStorage = AppSecureStorage();
   late final AuthRepository _authRepository;
 
   LoginBloc({required AuthRepository authRepository})
     : _authRepository = authRepository,
       super(const LoginState()) {
     on<OnPressedLoginEvent>(_onPressedLogin);
+    on<OnPressedObscurePasswordEvent>(_onPressedObscurePassword);
   }
 
   //PRIVATE EVENTS//
@@ -37,6 +40,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     );
 
     await _postLogin(emit, loginDtoRequest: loginDtoRequest);
+  }
+
+  void _onPressedObscurePassword(
+    OnPressedObscurePasswordEvent event,
+    Emitter<LoginState> emit,
+  ) {
+    _logger.debug("onPressedObscurePassword");
+    final bool isObscurePassword = event.isObscurePassword;
+    _logger.debug("isObscurePassword: $isObscurePassword");
+
+    emit(state.copyWith(isObscurePassword: !isObscurePassword));
   }
 
   //PRIVATE METHODS//
@@ -62,6 +76,18 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       _logger.debug("name: $name");
       _logger.debug("accessToken: $accessToken");
       _logger.debug("refreshToken: $refreshToken");
+
+      final bool isSaveAccessToken = await _appSecureStorage.save(
+        SecureStorageKeys.accessToken.name,
+        accessToken,
+      );
+      final bool isSaveRefreshToken = await _appSecureStorage.save(
+        SecureStorageKeys.refreshToken.name,
+        refreshToken,
+      );
+
+      _logger.debug("isSaveAccessToken: $isSaveAccessToken");
+      _logger.debug("isSaveRefreshToken: $isSaveRefreshToken");
 
       emit(state.copyWith(postLoginStatus: PostLoginStatus.success));
     } on DioException catch (e) {

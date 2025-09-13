@@ -16,3 +16,12 @@ class OnPressedLoginEvent extends LoginEvent {
   @override
   List<Object> get props => [email, password];
 }
+
+class OnPressedObscurePasswordEvent extends LoginEvent {
+  final bool isObscurePassword;
+
+  const OnPressedObscurePasswordEvent({required this.isObscurePassword});
+
+  @override
+  List<Object> get props => [isObscurePassword];
+}
