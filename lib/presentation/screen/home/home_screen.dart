@@ -21,8 +21,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(backgroundColor: Colors.redAccent, title: Text("Home")),
-      body: CustomScrollView(slivers: [ProductListWidget()]),
+      appBar: AppBar(
+        backgroundColor: Colors.redAccent,
+        title: const Text("Home"),
+      ),
+      body: const CustomScrollView(slivers: [ProductListWidget()]),
     );
   }
 }
