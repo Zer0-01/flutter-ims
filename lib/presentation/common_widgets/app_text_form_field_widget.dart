@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ims/utils/extension.dart';
 
 class AppTextFormFieldWidget extends StatelessWidget {
-  final String label;
+  final Widget? label;
   final String? hintText;
   const AppTextFormFieldWidget({super.key, required this.label, this.hintText});
 
@@ -25,7 +25,7 @@ class AppTextFormFieldWidget extends StatelessWidget {
         hintStyle: context.textTheme.bodyLarge?.copyWith(
           color: context.colorScheme.outline,
         ),
-        label: Text(label),
+        label: label,
       ),
     );
   }

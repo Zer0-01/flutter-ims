@@ -10,7 +10,7 @@ class PhoneFormWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: AppTextFormFieldWidget(
-        label: context.l10n.phone_number,
+        label: Text(context.l10n.phone_number),
         hintText: context.l10n.eg_60123456789,
       ),
     );

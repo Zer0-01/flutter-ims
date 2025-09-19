@@ -65,5 +65,7 @@
     "position": "Position",
     "@position": {},
     "continue_string": "Continue",
-    "@continue_string": {}
+    "@continue_string": {},
+    "asterisk": "*",
+    "@asterisk": {}
 }

@@ -7,9 +7,12 @@ class DepartmentFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextFormFieldWidget(
-      label: context.l10n.department,
-      hintText: context.l10n.eg_johndoemailcom,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: AppTextFormFieldWidget(
+        label: Text("${context.l10n.department} (${context.l10n.optional})"),
+        hintText: context.l10n.eg_johndoemailcom,
+      ),
     );
   }
 }

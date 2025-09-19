@@ -106,4 +106,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get continue_string => 'Teruskan';
+
+  @override
+  String get asterisk => '*';
 }

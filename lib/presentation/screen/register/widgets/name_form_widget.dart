@@ -10,7 +10,7 @@ class NameFormWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: AppTextFormFieldWidget(
-        label: context.l10n.name,
+        label: Text(context.l10n.name),
         hintText: context.l10n.eg_john_doe,
       ),
     );

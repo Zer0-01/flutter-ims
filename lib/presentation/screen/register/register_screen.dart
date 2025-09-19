@@ -62,16 +62,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 NameFormWidget(),
                 EmailFormWidget(),
                 PhoneFormWidget(),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Row(
-                    spacing: 16,
-                    children: [
-                      Expanded(child: DepartmentFormWidget()),
-                      Expanded(child: PositionFormWidget()),
-                    ],
-                  ),
-                ),
+                DepartmentFormWidget(),
+                PositionFormWidget(),
                 ContinueButtonWidget(),
               ],
             ),

@@ -292,6 +292,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue'**
   String get continue_string;
+
+  /// No description provided for @asterisk.
+  ///
+  /// In en, this message translates to:
+  /// **'*'**
+  String get asterisk;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

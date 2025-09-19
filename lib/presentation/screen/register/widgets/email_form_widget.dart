@@ -10,7 +10,7 @@ class EmailFormWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: AppTextFormFieldWidget(
-        label: context.l10n.email,
+        label: Text(context.l10n.email),
         hintText: context.l10n.eg_johndoemailcom,
       ),
     );

@@ -65,5 +65,7 @@
     "position": "Jawatan",
     "@position": {},
     "continue_string": "Teruskan",
-    "@continue_string": {}
+    "@continue_string": {},
+    "asterisk": "*",
+    "@asterisk": {}
 }
