@@ -298,6 +298,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'*'**
   String get asterisk;
+
+  /// No description provided for @eg_software.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Software'**
+  String get eg_software;
+
+  /// No description provided for @eg_software_engineer.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Software Engineer'**
+  String get eg_software_engineer;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

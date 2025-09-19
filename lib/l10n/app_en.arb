@@ -67,5 +67,9 @@
     "continue_string": "Continue",
     "@continue_string": {},
     "asterisk": "*",
-    "@asterisk": {}
+    "@asterisk": {},
+    "eg_software": "e.g. Software",
+    "@eg_software": {},
+    "eg_software_engineer": "e.g. Software Engineer",
+    "@eg_software_engineer": {}
 }

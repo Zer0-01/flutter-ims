@@ -67,5 +67,9 @@
     "continue_string": "Teruskan",
     "@continue_string": {},
     "asterisk": "*",
-    "@asterisk": {}
+    "@asterisk": {},
+    "eg_software": "cth. Perisian",
+    "@eg_software": {},
+    "eg_software_engineer": "cth. Jurutera Perisian",
+    "@eg_software_engineer": {}
 }

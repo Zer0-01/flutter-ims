@@ -18,8 +18,10 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   late final TextEditingController _nameController;
   late final TextEditingController _emailController;
-  late final TextEditingController _passwordController;
-  late final TextEditingController _confirmPasswordController;
+  late final TextEditingController _phoneController;
+  late final TextEditingController _departmentController;
+  late final TextEditingController _positionController;
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -27,17 +29,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
     super.initState();
     _nameController = TextEditingController();
     _emailController = TextEditingController();
-    _passwordController = TextEditingController();
-    _confirmPasswordController = TextEditingController();
+    _phoneController = TextEditingController();
+    _departmentController = TextEditingController();
+    _positionController = TextEditingController();
+
+    _nameController.addListener(_onChanged);
+    _emailController.addListener(_onChanged);
+    _phoneController.addListener(_onChanged);
+    _departmentController.addListener(_onChanged);
+    _positionController.addListener(_onChanged);
   }
 
   @override
   void dispose() {
     _nameController.dispose();
     _emailController.dispose();
-    _passwordController.dispose();
-    _confirmPasswordController.dispose();
+    _phoneController.dispose();
+    _departmentController.dispose();
+    _positionController.dispose();
     super.dispose();
+  }
+
+  void _onChanged() {
+    setState(() {});
   }
 
   @override
@@ -54,17 +68,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
-            child: const Column(
+            child: Column(
               spacing: 16,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                RegisterHeadlineWidget(),
-                NameFormWidget(),
-                EmailFormWidget(),
-                PhoneFormWidget(),
-                DepartmentFormWidget(),
-                PositionFormWidget(),
-                ContinueButtonWidget(),
+                const RegisterHeadlineWidget(),
+                NameFormWidget(nameController: _nameController),
+                EmailFormWidget(emailController: _emailController),
+                PhoneFormWidget(phoneController: _phoneController),
+                DepartmentFormWidget(
+                  departmentController: _departmentController,
+                ),
+                PositionFormWidget(positionController: _positionController),
+                ContinueButtonWidget(
+                  formKey: _formKey,
+                  nameController: _nameController,
+                  emailController: _emailController,
+                  phoneController: _phoneController,
+                  departmentController: _departmentController,
+                  positionController: _positionController,
+                ),
               ],
             ),
           ),

@@ -109,4 +109,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get asterisk => '*';
+
+  @override
+  String get eg_software => 'e.g. Software';
+
+  @override
+  String get eg_software_engineer => 'e.g. Software Engineer';
 }

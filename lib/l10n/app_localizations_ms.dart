@@ -109,4 +109,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get asterisk => '*';
+
+  @override
+  String get eg_software => 'cth. Perisian';
+
+  @override
+  String get eg_software_engineer => 'cth. Jurutera Perisian';
 }

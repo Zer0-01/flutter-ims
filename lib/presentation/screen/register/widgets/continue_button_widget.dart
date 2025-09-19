@@ -2,7 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ims/utils/extension.dart';
 
 class ContinueButtonWidget extends StatelessWidget {
-  const ContinueButtonWidget({super.key});
+  final GlobalKey<FormState> formKey;
+  final TextEditingController nameController;
+  final TextEditingController emailController;
+  final TextEditingController phoneController;
+  final TextEditingController departmentController;
+  final TextEditingController positionController;
+
+  const ContinueButtonWidget({
+    super.key,
+    required this.nameController,
+    required this.emailController,
+    required this.phoneController,
+    required this.departmentController,
+    required this.positionController,
+    required this.formKey,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +31,23 @@ class ContinueButtonWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          onPressed: () {},
+          onPressed:
+              _isEnabled(
+                    nameController.text,
+                    emailController.text,
+                    phoneController.text,
+                  )
+                  ? () {
+                    if (formKey.currentState?.validate() ?? false) {}
+                  }
+                  : null,
           child: Text(context.l10n.continue_string),
         ),
       ),
     );
+  }
+
+  bool _isEnabled(String name, String email, String phone) {
+    return name.isNotEmpty && email.isNotEmpty && phone.isNotEmpty;
   }
 }
