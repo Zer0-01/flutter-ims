@@ -30,78 +30,45 @@ class App extends StatelessWidget {
     );
   }
 
-  ThemeData _buildDarkTheme() => ThemeData(
-    useMaterial3: false,
-    brightness: Brightness.dark,
-    primarySwatch: Colors.blueGrey,
-  );
+  ThemeData _buildDarkTheme() {
+    const darkColorScheme = ColorScheme(
+      brightness: Brightness.dark,
+      primary: Color(0xFF7986CB), // Lighter Indigo
+      onPrimary: Colors.black,
+      secondary: Color(0xFF4DB6AC), // Soft Teal
+      onSecondary: Colors.black,
+      error: Color(0xFFEF5350),
+      onError: Colors.black,
+      surface: Color(0xFF1E1E1E),
+      onSurface: Colors.white,
+      outline: Color(0xFF616161),
+    );
+    return ThemeData(
+      useMaterial3: false,
+      brightness: Brightness.dark,
+      colorScheme: darkColorScheme,
+    );
+  }
 
   ThemeData _buildLightTheme() {
-    const primary = Color(0xff079669); // brand primary
-    const onPrimary = Colors.white;
-
-    const secondary = Color(0xffd8f8e9); // subtle highlight
-    const onSecondary = Color(0xff004d34);
-
-    const tertiary = Color(0xfff7b500); // accent (warning / attention grabber)
-    const onTertiary = Colors.black;
-
-    const error = Color(0xffd32f2f);
-    const onError = Colors.white;
-
-    const surface = Colors.white;
-    const onSurface = Color(0xff1c1b1f);
-
-    // Neutrals / Outlines (for borders, dividers, disabled states)
-    const outline = Color(0xffd0d5dd); // light border gray
-    const outlineVariant = Color(0xff9da4ae); // darker border / focus rings
-    const shadow = Color(0x1F000000); // soft shadows
-
-    // Inverse (for dark text on light background and vice versa)
-    const inverseSurface = Color(0xff121212);
-    const onInverseSurface = Colors.white;
-    const inversePrimary = Color(0xff55c89d);
-
-    const colorScheme = ColorScheme(
+    const lightColorScheme = ColorScheme(
       brightness: Brightness.light,
-      primary: primary,
-      onPrimary: onPrimary,
-      primaryContainer: Color(0xffb4e9d5),
-      onPrimaryContainer: Color(0xff002116),
-
-      secondary: secondary,
-      onSecondary: onSecondary,
-      secondaryContainer: Color(0xffb9eedd),
-      onSecondaryContainer: Color(0xff00291b),
-
-      tertiary: tertiary,
-      onTertiary: onTertiary,
-      tertiaryContainer: Color(0xffffe08a),
-      onTertiaryContainer: Color(0xff281800),
-
-      error: error,
-      onError: onError,
-      errorContainer: Color(0xffffdad6),
-      onErrorContainer: Color(0xff410002),
-
-      surface: surface,
-      onSurface: onSurface,
-      surfaceContainerHighest: Color(0xfff0f3f5), // cards, containers
-      onSurfaceVariant: Color(0xff49454f),
-
-      outline: outline,
-      outlineVariant: outlineVariant,
-
-      shadow: shadow,
-      scrim: Color(0x33000000), // overlays / modal backgrounds
-
-      inverseSurface: inverseSurface,
-      onInverseSurface: onInverseSurface,
-      inversePrimary: inversePrimary,
-      surfaceTint: primary, // used in elevation overlays
+      primary: Color(0xFF3F51B5), // Indigo
+      onPrimary: Colors.white,
+      secondary: Color(0xFF26A69A), // Teal
+      onSecondary: Colors.white,
+      error: Color(0xFFD32F2F), // Red
+      onError: Colors.white,
+      surface: Colors.white,
+      onSurface: Color(0xFF1A1A1A),
+      outline: Color(0xFF9E9E9E),
     );
 
-    return ThemeData(useMaterial3: true, colorScheme: colorScheme);
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.light,
+      colorScheme: lightColorScheme,
+    );
   }
 
   MultiBlocProvider _buildMultiBlocProvider(

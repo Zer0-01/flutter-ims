@@ -79,4 +79,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get continue_to_login => 'Continue to Login';
+
+  @override
+  String get user_information => 'User Information';
+
+  @override
+  String get phone_number => 'Phone Number';
+
+  @override
+  String get eg_john_doe => 'e.g. John Doe';
+
+  @override
+  String get eg_60123456789 => 'e.g. +60123456789';
+
+  @override
+  String get eg_johndoemailcom => 'e.g. qX9lM@example.com';
+
+  @override
+  String get optional => 'Optional';
+
+  @override
+  String get department => 'Department';
+
+  @override
+  String get position => 'Position';
+
+  @override
+  String get continue_string => 'Continue';
 }

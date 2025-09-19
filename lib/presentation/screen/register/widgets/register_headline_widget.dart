@@ -7,11 +7,10 @@ class RegisterHeadlineWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0, top: 32, right: 16),
+      padding: const EdgeInsets.only(left: 16.0, top: 16, right: 16),
       child: Text(
-        context.l10n.create_account,
-        style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-          color: Colors.white,
+        context.l10n.user_information,
+        style: context.textTheme.headlineSmall?.copyWith(
           fontWeight: FontWeight.bold,
         ),
       ),

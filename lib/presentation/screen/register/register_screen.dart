@@ -1,8 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ims/presentation/screen/register/widgets/login_widget.dart';
-import 'package:flutter_ims/presentation/screen/register/widgets/register_button_widget.dart';
-import 'package:flutter_ims/presentation/screen/register/widgets/register_form_widget.dart';
+import 'package:flutter_ims/presentation/screen/register/widgets/continue_button_widget.dart';
+import 'package:flutter_ims/presentation/screen/register/widgets/department_form_widget.dart';
+import 'package:flutter_ims/presentation/screen/register/widgets/email_form_widget.dart';
+import 'package:flutter_ims/presentation/screen/register/widgets/name_form_widget.dart';
+import 'package:flutter_ims/presentation/screen/register/widgets/phone_form_widget.dart';
+import 'package:flutter_ims/presentation/screen/register/widgets/position_form_widget.dart';
 import 'package:flutter_ims/presentation/screen/register/widgets/register_headline_widget.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -40,41 +43,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
         leading: IconButton(
           onPressed: () => context.router.pop(),
-          icon: const Icon(Icons.chevron_left, color: Colors.white),
+          icon: const Icon(Icons.chevron_left),
         ),
       ),
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Form(
-              key: _formKey,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 16,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const RegisterHeadlineWidget(),
-                  const LoginWidget(),
-                  RegisterFormWidget(
-                    nameController: _nameController,
-                    emailController: _emailController,
-                    passwordController: _passwordController,
-                    confirmPasswordController: _confirmPasswordController,
+      body: SizedBox(
+        height: double.infinity,
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: const Column(
+              spacing: 16,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RegisterHeadlineWidget(),
+                NameFormWidget(),
+                EmailFormWidget(),
+                PhoneFormWidget(),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    spacing: 16,
+                    children: [
+                      Expanded(child: DepartmentFormWidget()),
+                      Expanded(child: PositionFormWidget()),
+                    ],
                   ),
-                  RegisterButtonWidget(
-                    nameController: _nameController,
-                    emailController: _emailController,
-                    passwordController: _passwordController,
-                    confirmPasswordController: _confirmPasswordController,
-                    formKey: _formKey,
-                  ),
-                ],
-              ),
+                ),
+                ContinueButtonWidget(),
+              ],
             ),
           ),
         ),

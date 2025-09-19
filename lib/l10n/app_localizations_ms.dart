@@ -79,4 +79,31 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get continue_to_login => 'Teruskan ke Log Masuk';
+
+  @override
+  String get user_information => 'Maklumat Pengguna';
+
+  @override
+  String get phone_number => 'Nombor Telefon';
+
+  @override
+  String get eg_john_doe => 'cth. John Doe';
+
+  @override
+  String get eg_60123456789 => 'cth. +60123456789';
+
+  @override
+  String get eg_johndoemailcom => 'e.g. qX9lM@example.com';
+
+  @override
+  String get optional => 'Pilihan';
+
+  @override
+  String get department => 'Jabatan';
+
+  @override
+  String get position => 'Jawatan';
+
+  @override
+  String get continue_string => 'Teruskan';
 }

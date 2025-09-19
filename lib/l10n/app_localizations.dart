@@ -238,6 +238,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue to Login'**
   String get continue_to_login;
+
+  /// No description provided for @user_information.
+  ///
+  /// In en, this message translates to:
+  /// **'User Information'**
+  String get user_information;
+
+  /// No description provided for @phone_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phone_number;
+
+  /// No description provided for @eg_john_doe.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. John Doe'**
+  String get eg_john_doe;
+
+  /// No description provided for @eg_60123456789.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. +60123456789'**
+  String get eg_60123456789;
+
+  /// No description provided for @eg_johndoemailcom.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. qX9lM@example.com'**
+  String get eg_johndoemailcom;
+
+  /// No description provided for @optional.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional'**
+  String get optional;
+
+  /// No description provided for @department.
+  ///
+  /// In en, this message translates to:
+  /// **'Department'**
+  String get department;
+
+  /// No description provided for @position.
+  ///
+  /// In en, this message translates to:
+  /// **'Position'**
+  String get position;
+
+  /// No description provided for @continue_string.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continue_string;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
