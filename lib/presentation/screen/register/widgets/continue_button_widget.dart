@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ims/routes/app_router.gr.dart';
 import 'package:flutter_ims/utils/extension.dart';
 
 class ContinueButtonWidget extends StatelessWidget {
@@ -38,7 +40,9 @@ class ContinueButtonWidget extends StatelessWidget {
                     phoneController.text,
                   )
                   ? () {
-                    if (formKey.currentState?.validate() ?? false) {}
+                    if (formKey.currentState?.validate() ?? false) {
+                      context.router.push(const OrganizationSetupRoute());
+                    }
                   }
                   : null,
           child: Text(context.l10n.continue_string),

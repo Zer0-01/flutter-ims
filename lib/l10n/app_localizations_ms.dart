@@ -115,4 +115,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get eg_software_engineer => 'cth. Jurutera Perisian';
+
+  @override
+  String get organization_information => 'Maklumat Organisasi';
 }

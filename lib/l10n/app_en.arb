@@ -71,5 +71,7 @@
     "eg_software": "e.g. Software",
     "@eg_software": {},
     "eg_software_engineer": "e.g. Software Engineer",
-    "@eg_software_engineer": {}
+    "@eg_software_engineer": {},
+    "organization_information": "Organization Information",
+    "@organization_information": {}
 }

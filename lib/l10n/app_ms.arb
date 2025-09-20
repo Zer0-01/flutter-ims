@@ -71,5 +71,6 @@
     "eg_software": "cth. Perisian",
     "@eg_software": {},
     "eg_software_engineer": "cth. Jurutera Perisian",
-    "@eg_software_engineer": {}
+    "@eg_software_engineer": {},
+    "organization_information": "Maklumat Organisasi"
 }

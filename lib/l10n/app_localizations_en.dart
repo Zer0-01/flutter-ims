@@ -115,4 +115,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get eg_software_engineer => 'e.g. Software Engineer';
+
+  @override
+  String get organization_information => 'Organization Information';
 }

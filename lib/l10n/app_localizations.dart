@@ -310,6 +310,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'e.g. Software Engineer'**
   String get eg_software_engineer;
+
+  /// No description provided for @organization_information.
+  ///
+  /// In en, this message translates to:
+  /// **'Organization Information'**
+  String get organization_information;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

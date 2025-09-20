@@ -8,7 +8,7 @@ class AppTextFormFieldWidget extends StatelessWidget {
   final String? Function(String?)? validator;
   const AppTextFormFieldWidget({
     super.key,
-    required this.label,
+    this.label,
     this.hintText,
     this.controller,
     this.validator,
