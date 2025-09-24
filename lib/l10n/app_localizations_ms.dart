@@ -60,7 +60,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get password_is_required => 'Kata laluan diperlukan';
 
   @override
-  String get password_must_be_at_least_6_characters => 'Kata laluan harus sekurang-kurangnya enam aksara';
+  String get password_must_be_at_least_8_characters => 'Kata laluan harus sekurang-kurangnya lapan aksara';
 
   @override
   String get password_must_be_alpha_numeric => 'Kata laluan harus alpha-numeric';

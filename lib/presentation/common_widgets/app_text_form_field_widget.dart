@@ -6,12 +6,17 @@ class AppTextFormFieldWidget extends StatelessWidget {
   final String? hintText;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final Widget? suffixIcon;
+  final bool obscureText;
+
   const AppTextFormFieldWidget({
     super.key,
     this.label,
     this.hintText,
     this.controller,
     this.validator,
+    this.suffixIcon,
+    this.obscureText = false,
   });
 
   @override
@@ -19,10 +24,11 @@ class AppTextFormFieldWidget extends StatelessWidget {
     return TextFormField(
       controller: controller,
       validator: validator,
+      obscureText: obscureText,
       decoration: InputDecoration(
         isDense: true,
-
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+        suffixIcon: suffixIcon,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide(color: context.colorScheme.outline),

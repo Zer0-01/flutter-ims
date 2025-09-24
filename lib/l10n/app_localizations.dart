@@ -197,11 +197,11 @@ abstract class AppLocalizations {
   /// **'Password is required'**
   String get password_is_required;
 
-  /// No description provided for @password_must_be_at_least_6_characters.
+  /// No description provided for @password_must_be_at_least_8_characters.
   ///
   /// In en, this message translates to:
-  /// **'Password must be at least 6 characters'**
-  String get password_must_be_at_least_6_characters;
+  /// **'Password must be at least 8 characters'**
+  String get password_must_be_at_least_8_characters;
 
   /// No description provided for @password_must_be_alpha_numeric.
   ///

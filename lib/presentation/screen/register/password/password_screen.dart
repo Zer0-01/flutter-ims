@@ -77,6 +77,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
               PasswordFormWidget(passwordController: _passwordController),
               ConfirmPasswordFormWidget(
                 confirmPasswordController: _confirmPasswordController,
+                passwordController: _passwordController,
               ),
 
               RegisterButtonWidget(
@@ -89,6 +90,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                 userPosition: widget.userPosition,
                 organizationName: widget.organizationName,
                 organizationEmail: widget.organizationEmail,
+                formKey: _formKey,
               ),
             ],
           ),

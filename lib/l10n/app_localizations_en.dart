@@ -60,7 +60,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password_is_required => 'Password is required';
 
   @override
-  String get password_must_be_at_least_6_characters => 'Password must be at least 6 characters';
+  String get password_must_be_at_least_8_characters => 'Password must be at least 8 characters';
 
   @override
   String get password_must_be_alpha_numeric => 'Password must be alpha numeric';

@@ -15,6 +15,7 @@ class RegisterButtonWidget extends StatelessWidget {
   final String userPosition;
   final String organizationName;
   final String organizationEmail;
+  final GlobalKey<FormState> formKey;
 
   const RegisterButtonWidget({
     super.key,
@@ -27,6 +28,7 @@ class RegisterButtonWidget extends StatelessWidget {
     required this.userPosition,
     required this.organizationName,
     required this.organizationEmail,
+    required this.formKey,
   });
 
   @override
@@ -80,24 +82,36 @@ class RegisterButtonWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
-            onPressed: () {
-              context.read<PasswordBloc>().add(
-                OnPressedRegisterEvent(
-                  userName: userName,
-                  userEmail: userEmail,
-                  userPhone: userPhone,
-                  userDepartment: userDepartment,
-                  userPosition: userPosition,
-                  userPassword: passwordController.text,
-                  organizationName: organizationName,
-                  organizationEmail: organizationEmail,
-                ),
-              );
-            },
+            onPressed:
+                _isEnabled(
+                      passwordController.text,
+                      confirmPasswordController.text,
+                    )
+                    ? () {
+                      if (formKey.currentState?.validate() ?? false) {
+                        context.read<PasswordBloc>().add(
+                          OnPressedRegisterEvent(
+                            userName: userName,
+                            userEmail: userEmail,
+                            userPhone: userPhone,
+                            userDepartment: userDepartment,
+                            userPosition: userPosition,
+                            userPassword: passwordController.text,
+                            organizationName: organizationName,
+                            organizationEmail: organizationEmail,
+                          ),
+                        );
+                      }
+                    }
+                    : null,
             child: Text(context.l10n.register),
           ),
         ),
       ),
     );
+  }
+
+  bool _isEnabled(String password, String confirmPassword) {
+    return password.isNotEmpty && confirmPassword.isNotEmpty;
   }
 }

@@ -7,8 +7,8 @@ class FormValidator {
     return !RegExp(r"^[\w\.\-]+@([\w\-]+\.)+[a-zA-Z]{2,}$").hasMatch(email);
   }
 
-  static bool isNotContainSixCharacters(String password) {
-    return password.length < 6;
+  static bool isNotContainEightCharacters(String password) {
+    return password.length < 8;
   }
 
   static bool isNotAlphaNumeric(String password) {
