@@ -81,7 +81,7 @@ class PasswordBloc extends Bloc<PasswordEvent, PasswordState> {
         ),
         organization: RegisterOrganization(
           name: organizationName,
-          email: organizationEmail,
+          email: userEmail,
         ),
       );
 

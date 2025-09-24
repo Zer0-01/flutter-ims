@@ -130,4 +130,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get please_check_your_details_and_try_again => 'Sila semak maklumat anda dan cuba lagi.';
+
+  @override
+  String get password_must_contain_special_character => 'Kata laluan mestilah mengandungi aksara khas';
+
+  @override
+  String get password_must_be_mixed_case => 'Kata laluan mestilah mengandungi huruf besar dan kecil';
 }

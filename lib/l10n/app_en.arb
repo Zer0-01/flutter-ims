@@ -81,5 +81,9 @@
     "registration_failed": "Registration Failed",
     "@registration_failed": {},
     "please_check_your_details_and_try_again": "Please check your details and try again.",
-    "@please_check_your_details_and_try_again": {}
+    "@please_check_your_details_and_try_again": {},
+    "password_must_contain_special_character": "Password must contain special character",
+    "@password_must_contain_special_character": {},
+    "password_must_be_mixed_case": "Password must be mixed case",
+    "@password_must_be_mixed_case": {}
 }

@@ -340,6 +340,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please check your details and try again.'**
   String get please_check_your_details_and_try_again;
+
+  /// No description provided for @password_must_contain_special_character.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain special character'**
+  String get password_must_contain_special_character;
+
+  /// No description provided for @password_must_be_mixed_case.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be mixed case'**
+  String get password_must_be_mixed_case;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

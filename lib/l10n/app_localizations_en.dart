@@ -130,4 +130,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get please_check_your_details_and_try_again => 'Please check your details and try again.';
+
+  @override
+  String get password_must_contain_special_character => 'Password must contain special character';
+
+  @override
+  String get password_must_be_mixed_case => 'Password must be mixed case';
 }

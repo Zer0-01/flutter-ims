@@ -37,6 +37,16 @@ class _PasswordFormWidgetState extends State<PasswordFormWidget> {
             return context.l10n.password_must_be_alpha_numeric;
           }
 
+          if (FormValidator.isNotContainSpecialCharacter(
+            widget.passwordController.text,
+          )) {
+            return context.l10n.password_must_contain_special_character;
+          }
+
+          if (FormValidator.isNotMixedCase(widget.passwordController.text)) {
+            return context.l10n.password_must_be_mixed_case;
+          }
+
           return null;
         },
       ),

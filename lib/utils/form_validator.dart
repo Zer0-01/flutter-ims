@@ -17,6 +17,19 @@ class FormValidator {
     return !(hasLetter && hasNumber);
   }
 
+  static bool isNotContainSpecialCharacter(String password) {
+    final hasSpecial = RegExp(
+      r'[!@#\$%\^&\*\(\)_\+\-=\[\]{};:\\|,.<>\/?]',
+    ).hasMatch(password);
+    return !hasSpecial;
+  }
+
+  static bool isNotMixedCase(String password) {
+    final hasUpper = RegExp(r'[A-Z]').hasMatch(password);
+    final hasLower = RegExp(r'[a-z]').hasMatch(password);
+    return !(hasUpper && hasLower);
+  }
+
   static bool isPasswordNotMatch(String password, String confirmPassword) {
     return password != confirmPassword;
   }
