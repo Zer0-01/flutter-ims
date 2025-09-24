@@ -12,19 +12,14 @@ class SignUpWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       spacing: 8,
       children: [
-        Text(
-          context.l10n.dont_have_an_account,
-          style: Theme.of(
-            context,
-          ).textTheme.bodyMedium?.copyWith(color: Colors.white),
-        ),
+        Text(context.l10n.dont_have_an_account),
         GestureDetector(
           onTap: () => context.router.push(const RegisterSetupRoute()),
           child: Text(
             context.l10n.sign_up,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium?.copyWith(color: Colors.redAccent),
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: context.colorScheme.primary,
+            ),
           ),
         ),
       ],

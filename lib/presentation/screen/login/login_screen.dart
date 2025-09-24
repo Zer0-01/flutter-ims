@@ -15,13 +15,15 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late final TextEditingController _emailController;
   late final TextEditingController _passwordController;
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
     _emailController = TextEditingController();
     _passwordController = TextEditingController();
+
+    _emailController.addListener(_onChanged);
+    _passwordController.addListener(_onChanged);
   }
 
   @override
@@ -31,34 +33,33 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
+  void _onChanged() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            child: Form(
-              key: _formKey,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 16,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const LoginHeadlineWidget(),
-                  const SignUpWidget(),
-                  LoginFormWidget(
-                    emailController: _emailController,
-                    passwordController: _passwordController,
-                  ),
-                  const ForgotPasswordWidget(),
-                  LoginButtonWidget(
-                    emailController: _emailController,
-                    passwordController: _passwordController,
-                    formKey: _formKey,
-                  ),
-                ],
-              ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              spacing: 16,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const LoginHeadlineWidget(),
+                const SignUpWidget(),
+                LoginFormWidget(
+                  emailController: _emailController,
+                  passwordController: _passwordController,
+                ),
+                const ForgotPasswordWidget(),
+                LoginButtonWidget(
+                  emailController: _emailController,
+                  passwordController: _passwordController,
+                ),
+              ],
             ),
           ),
         ),

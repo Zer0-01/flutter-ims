@@ -10,10 +10,9 @@ class LoginHeadlineWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0, top: 32, right: 16),
       child: Text(
         context.l10n.sign_in_to_your_account,
-        style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
+        style: Theme.of(
+          context,
+        ).textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.bold),
       ),
     );
   }

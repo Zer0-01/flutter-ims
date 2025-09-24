@@ -10,11 +10,9 @@ class ForgotPasswordWidget extends StatelessWidget {
       onPressed: () {},
       child: Text(
         context.l10n.forgot_your_password,
-        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-          color: Colors.white,
-          decoration: TextDecoration.underline,
-          decorationColor: Colors.white,
-        ),
+        style: Theme.of(
+          context,
+        ).textTheme.bodyMedium?.copyWith(decoration: TextDecoration.underline),
       ),
     );
   }

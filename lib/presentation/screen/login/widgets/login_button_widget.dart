@@ -4,17 +4,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ims/presentation/common_widgets/app_loading_dialog_widget.dart';
 import 'package:flutter_ims/presentation/screen/login/bloc/login_bloc.dart';
 import 'package:flutter_ims/routes/app_router.gr.dart';
+import 'package:flutter_ims/utils/extension.dart';
 
 class LoginButtonWidget extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
-  final GlobalKey<FormState> formKey;
 
   const LoginButtonWidget({
     super.key,
     required this.emailController,
     required this.passwordController,
-    required this.formKey,
   });
 
   @override
@@ -50,28 +49,31 @@ class LoginButtonWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: SizedBox(
           width: double.infinity,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.redAccent,
-              foregroundColor: Colors.white,
+          child: FilledButton(
+            style: FilledButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
-            onPressed: () {
-              if (formKey.currentState!.validate()) {
-                context.read<LoginBloc>().add(
-                  OnPressedLoginEvent(
-                    email: emailController.text,
-                    password: passwordController.text,
-                  ),
-                );
-              }
-            },
-            child: const Text("Login"),
+            onPressed:
+                _isEnabled(emailController.text, passwordController.text)
+                    ? () {
+                      context.read<LoginBloc>().add(
+                        OnPressedLoginEvent(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        ),
+                      );
+                    }
+                    : null,
+            child: Text(context.l10n.login),
           ),
         ),
       ),
     );
+  }
+
+  bool _isEnabled(String email, String password) {
+    return email.isNotEmpty && password.isNotEmpty;
   }
 }
