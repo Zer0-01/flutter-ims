@@ -118,4 +118,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get organization_information => 'Organization Information';
+
+  @override
+  String get password_setup => 'Password Setup';
 }

@@ -118,4 +118,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get organization_information => 'Maklumat Organisasi';
+
+  @override
+  String get password_setup => 'Setup Kata Laluan';
 }

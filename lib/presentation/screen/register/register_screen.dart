@@ -63,33 +63,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
           icon: const Icon(Icons.chevron_left),
         ),
       ),
-      body: SizedBox(
-        height: double.infinity,
-        child: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              spacing: 16,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const RegisterHeadlineWidget(),
-                NameFormWidget(nameController: _nameController),
-                EmailFormWidget(emailController: _emailController),
-                PhoneFormWidget(phoneController: _phoneController),
-                DepartmentFormWidget(
-                  departmentController: _departmentController,
-                ),
-                PositionFormWidget(positionController: _positionController),
-                ContinueButtonWidget(
-                  formKey: _formKey,
-                  nameController: _nameController,
-                  emailController: _emailController,
-                  phoneController: _phoneController,
-                  departmentController: _departmentController,
-                  positionController: _positionController,
-                ),
-              ],
-            ),
+      body: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            spacing: 16,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const RegisterHeadlineWidget(),
+              NameFormWidget(nameController: _nameController),
+              EmailFormWidget(emailController: _emailController),
+              PhoneFormWidget(phoneController: _phoneController),
+              DepartmentFormWidget(departmentController: _departmentController),
+              PositionFormWidget(positionController: _positionController),
+              ContinueButtonWidget(
+                formKey: _formKey,
+                nameController: _nameController,
+                emailController: _emailController,
+                phoneController: _phoneController,
+                departmentController: _departmentController,
+                positionController: _positionController,
+              ),
+            ],
           ),
         ),
       ),

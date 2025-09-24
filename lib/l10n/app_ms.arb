@@ -72,5 +72,7 @@
     "@eg_software": {},
     "eg_software_engineer": "cth. Jurutera Perisian",
     "@eg_software_engineer": {},
-    "organization_information": "Maklumat Organisasi"
+    "organization_information": "Maklumat Organisasi",
+    "password_setup": "Setup Kata Laluan",
+    "@password_setup": {}
 }

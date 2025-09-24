@@ -316,6 +316,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Organization Information'**
   String get organization_information;
+
+  /// No description provided for @password_setup.
+  ///
+  /// In en, this message translates to:
+  /// **'Password Setup'**
+  String get password_setup;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

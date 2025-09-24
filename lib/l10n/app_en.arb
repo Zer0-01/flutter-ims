@@ -73,5 +73,7 @@
     "eg_software_engineer": "e.g. Software Engineer",
     "@eg_software_engineer": {},
     "organization_information": "Organization Information",
-    "@organization_information": {}
+    "@organization_information": {},
+    "password_setup": "Password Setup",
+    "@password_setup": {}
 }
