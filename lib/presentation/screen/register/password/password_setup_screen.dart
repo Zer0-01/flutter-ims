@@ -1,5 +1,8 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ims/data/repository/user_repository.dart';
+import 'package:flutter_ims/presentation/screen/register/password/bloc/password_bloc.dart';
 import 'package:flutter_ims/presentation/screen/register/password/password_screen.dart';
 
 @RoutePage()
@@ -25,14 +28,17 @@ class PasswordSetupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PasswordScreen(
-      userName: userName,
-      userEmail: userEmail,
-      userPhone: userPhone,
-      userDepartment: userDepartment,
-      userPosition: userPosition,
-      organizationName: organizationName,
-      organizationEmail: organizationEmail,
+    return BlocProvider(
+      create: (context) => PasswordBloc(userRepository: UserRepository()),
+      child: PasswordScreen(
+        userName: userName,
+        userEmail: userEmail,
+        userPhone: userPhone,
+        userDepartment: userDepartment,
+        userPosition: userPosition,
+        organizationName: organizationName,
+        organizationEmail: organizationEmail,
+      ),
     );
   }
 }

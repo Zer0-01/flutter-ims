@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ims/presentation/screen/register/organization/widgets/continue_button_widget.dart';
 import 'package:flutter_ims/presentation/screen/register/organization/widgets/organization_email_form_widget.dart';
 import 'package:flutter_ims/presentation/screen/register/organization/widgets/organization_headline_widget.dart';
 import 'package:flutter_ims/presentation/screen/register/organization/widgets/organization_name_form_widget.dart';
-import 'package:flutter_ims/presentation/screen/register/organization/widgets/register_button_widget.dart';
 
 class OrganizationScreen extends StatefulWidget {
   final String userName;
@@ -72,7 +72,7 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
           OrganizationEmailFormWidget(
             organizationEmailController: organizationEmailController,
           ),
-          RegisterButtonWidget(
+          ContinueButtonWidget(
             organizationNameController: organizationNameController,
             organizationEmailController: organizationEmailController,
             userName: widget.userName,

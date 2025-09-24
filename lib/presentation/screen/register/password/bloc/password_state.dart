@@ -1,36 +1,27 @@
-part of 'register_bloc.dart';
+part of 'password_bloc.dart';
 
 enum PostRegisterStatus { initial, loading, success, failure }
 
-class RegisterState extends Equatable {
+class PasswordState extends Equatable {
   final PostRegisterStatus postRegisterStatus;
   final DioExceptionType dioTypePostRegister;
   final int dioCodePostRegister;
-  final bool isObscurePassword;
-  final bool isObscureConfirmPassword;
 
-  const RegisterState({
+  const PasswordState({
     this.postRegisterStatus = PostRegisterStatus.initial,
     this.dioTypePostRegister = DioExceptionType.unknown,
     this.dioCodePostRegister = 0,
-    this.isObscurePassword = true,
-    this.isObscureConfirmPassword = true,
   });
 
-  RegisterState copyWith({
+  PasswordState copyWith({
     PostRegisterStatus? postRegisterStatus,
     DioExceptionType? dioTypePostRegister,
     int? dioCodePostRegister,
-    bool? isObscurePassword,
-    bool? isObscureConfirmPassword,
   }) {
-    return RegisterState(
+    return PasswordState(
       postRegisterStatus: postRegisterStatus ?? this.postRegisterStatus,
       dioTypePostRegister: dioTypePostRegister ?? this.dioTypePostRegister,
       dioCodePostRegister: dioCodePostRegister ?? this.dioCodePostRegister,
-      isObscurePassword: isObscurePassword ?? this.isObscurePassword,
-      isObscureConfirmPassword:
-          isObscureConfirmPassword ?? this.isObscureConfirmPassword,
     );
   }
 
@@ -39,7 +30,5 @@ class RegisterState extends Equatable {
     postRegisterStatus,
     dioTypePostRegister,
     dioCodePostRegister,
-    isObscurePassword,
-    isObscureConfirmPassword,
   ];
 }

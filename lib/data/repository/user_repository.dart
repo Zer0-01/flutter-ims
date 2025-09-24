@@ -11,9 +11,10 @@ class UserRepository {
     required RegisterDtoRequest registerDtoRequest,
   }) async {
     _logger.debug("postRegister");
+    _logger.debug("registerDtoRequest: ${registerDtoRequest.toJson()}");
 
     final response = await AppApiService.instance.request(
-      ApiEndpoints.register,
+      ApiEndpoints.registerOrganization,
       DioMethod.post,
       param: registerDtoRequest.toJson(),
     );

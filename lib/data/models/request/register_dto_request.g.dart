@@ -8,16 +8,18 @@ part of 'register_dto_request.dart';
 
 RegisterDtoRequest _$RegisterDtoRequestFromJson(Map<String, dynamic> json) =>
     RegisterDtoRequest(
-      name: json['name'] as String,
-      email: json['email'] as String,
-      password: json['password'] as String,
+      adminUser: RegisterAdminUser.fromJson(
+        json['admin_user'] as Map<String, dynamic>,
+      ),
+      organization: RegisterOrganization.fromJson(
+        json['organization'] as Map<String, dynamic>,
+      ),
     );
 
 Map<String, dynamic> _$RegisterDtoRequestToJson(RegisterDtoRequest instance) =>
     <String, dynamic>{
-      'name': instance.name,
-      'email': instance.email,
-      'password': instance.password,
+      'admin_user': instance.adminUser.toJson(),
+      'organization': instance.organization.toJson(),
     };
 
 RegisterAdminUser _$RegisterAdminUserFromJson(Map<String, dynamic> json) =>
@@ -39,3 +41,14 @@ Map<String, dynamic> _$RegisterAdminUserToJson(RegisterAdminUser instance) =>
       'department': instance.department,
       'position': instance.position,
     };
+
+RegisterOrganization _$RegisterOrganizationFromJson(
+  Map<String, dynamic> json,
+) => RegisterOrganization(
+  name: json['name'] as String,
+  email: json['email'] as String,
+);
+
+Map<String, dynamic> _$RegisterOrganizationToJson(
+  RegisterOrganization instance,
+) => <String, dynamic>{'name': instance.name, 'email': instance.email};
