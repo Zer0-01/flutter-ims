@@ -322,6 +322,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password Setup'**
   String get password_setup;
+
+  /// No description provided for @eg_ABC_sdn_bhd.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. ABC Sdn Bhd'**
+  String get eg_ABC_sdn_bhd;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

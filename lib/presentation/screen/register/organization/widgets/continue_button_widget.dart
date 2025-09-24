@@ -12,6 +12,7 @@ class ContinueButtonWidget extends StatelessWidget {
   final String userPhone;
   final String userDepartment;
   final String userPosition;
+  final GlobalKey<FormState> formKey;
 
   const ContinueButtonWidget({
     super.key,
@@ -22,6 +23,7 @@ class ContinueButtonWidget extends StatelessWidget {
     required this.userPhone,
     required this.userDepartment,
     required this.userPosition,
+    required this.formKey,
   });
 
   @override
@@ -36,22 +38,34 @@ class ContinueButtonWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          onPressed: () {
-            context.router.push(
-              PasswordSetupRoute(
-                userName: userName,
-                userEmail: userEmail,
-                userPhone: userPhone,
-                userDepartment: userDepartment,
-                userPosition: userPosition,
-                organizationName: organizationNameController.text,
-                organizationEmail: organizationEmailController.text,
-              ),
-            );
-          },
+          onPressed:
+              _isEnabled(
+                    organizationNameController.text,
+                    organizationEmailController.text,
+                  )
+                  ? () {
+                    if (formKey.currentState?.validate() ?? false) {
+                      context.router.push(
+                        PasswordSetupRoute(
+                          userName: userName,
+                          userEmail: userEmail,
+                          userPhone: userPhone,
+                          userDepartment: userDepartment,
+                          userPosition: userPosition,
+                          organizationName: organizationNameController.text,
+                          organizationEmail: organizationEmailController.text,
+                        ),
+                      );
+                    }
+                  }
+                  : null,
           child: Text(context.l10n.continue_string),
         ),
       ),
     );
+  }
+
+  bool _isEnabled(String organizationName, String organizationEmail) {
+    return organizationName.isNotEmpty && organizationEmail.isNotEmpty;
   }
 }

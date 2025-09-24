@@ -121,4 +121,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get password_setup => 'Setup Kata Laluan';
+
+  @override
+  String get eg_ABC_sdn_bhd => 'e.g. ABC Sdn Bhd';
 }

@@ -16,6 +16,7 @@ class OrganizationNameFormWidget extends StatelessWidget {
       child: AppTextFormFieldWidget(
         controller: organizationNameController,
         label: Text(context.l10n.name),
+        hintText: context.l10n.eg_ABC_sdn_bhd,
       ),
     );
   }

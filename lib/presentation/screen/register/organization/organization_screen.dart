@@ -26,6 +26,7 @@ class OrganizationScreen extends StatefulWidget {
 }
 
 class _OrganizationScreenState extends State<OrganizationScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late final TextEditingController organizationNameController;
   late final TextEditingController organizationEmailController;
 
@@ -61,27 +62,31 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
           icon: const Icon(Icons.chevron_left),
         ),
       ),
-      body: Column(
-        spacing: 16,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const OrganizationHeadlineWidget(),
-          OrganizationNameFormWidget(
-            organizationNameController: organizationNameController,
-          ),
-          OrganizationEmailFormWidget(
-            organizationEmailController: organizationEmailController,
-          ),
-          ContinueButtonWidget(
-            organizationNameController: organizationNameController,
-            organizationEmailController: organizationEmailController,
-            userName: widget.userName,
-            userEmail: widget.userEmail,
-            userPhone: widget.userPhone,
-            userDepartment: widget.userDepartment,
-            userPosition: widget.userPosition,
-          ),
-        ],
+      body: Form(
+        key: _formKey,
+        child: Column(
+          spacing: 16,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const OrganizationHeadlineWidget(),
+            OrganizationNameFormWidget(
+              organizationNameController: organizationNameController,
+            ),
+            OrganizationEmailFormWidget(
+              organizationEmailController: organizationEmailController,
+            ),
+            ContinueButtonWidget(
+              formKey: _formKey,
+              organizationNameController: organizationNameController,
+              organizationEmailController: organizationEmailController,
+              userName: widget.userName,
+              userEmail: widget.userEmail,
+              userPhone: widget.userPhone,
+              userDepartment: widget.userDepartment,
+              userPosition: widget.userPosition,
+            ),
+          ],
+        ),
       ),
     );
   }

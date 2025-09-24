@@ -121,4 +121,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get password_setup => 'Password Setup';
+
+  @override
+  String get eg_ABC_sdn_bhd => 'e.g. ABC Sdn Bhd';
 }
