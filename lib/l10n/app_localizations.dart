@@ -328,6 +328,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'e.g. ABC Sdn Bhd'**
   String get eg_ABC_sdn_bhd;
+
+  /// No description provided for @registration_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration Failed'**
+  String get registration_failed;
+
+  /// No description provided for @please_check_your_details_and_try_again.
+  ///
+  /// In en, this message translates to:
+  /// **'Please check your details and try again.'**
+  String get please_check_your_details_and_try_again;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

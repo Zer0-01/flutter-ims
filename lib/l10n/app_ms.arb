@@ -76,5 +76,9 @@
     "password_setup": "Setup Kata Laluan",
     "@password_setup": {},
     "eg_ABC_sdn_bhd": "e.g. ABC Sdn Bhd",
-    "@eg_ABC_sdn_bhd": {}
+    "@eg_ABC_sdn_bhd": {},
+    "registration_failed": "Pendaftaran Gagal",
+    "@registration_failed": {},
+    "please_check_your_details_and_try_again": "Sila semak maklumat anda dan cuba lagi.",
+    "@please_check_your_details_and_try_again": {}
 }

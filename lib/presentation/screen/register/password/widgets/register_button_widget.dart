@@ -1,7 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ims/presentation/common_widgets/app_loading_dialog_widget.dart';
 import 'package:flutter_ims/presentation/screen/register/password/bloc/password_bloc.dart';
+import 'package:flutter_ims/presentation/screen/register/widgets/register_success_dialog_widget.dart';
+import 'package:flutter_ims/routes/app_router.gr.dart';
 import 'package:flutter_ims/utils/extension.dart';
 import 'package:toastification/toastification.dart';
 
@@ -37,7 +40,7 @@ class RegisterButtonWidget extends StatelessWidget {
       listenWhen:
           (previous, current) =>
               previous.postRegisterStatus != current.postRegisterStatus,
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state.postRegisterStatus == PostRegisterStatus.loading) {
           showDialog(
             barrierDismissible: false,
@@ -53,8 +56,10 @@ class RegisterButtonWidget extends StatelessWidget {
             context: context,
             type: ToastificationType.error,
             style: ToastificationStyle.fillColored,
-            title: const Text("Component updates available."),
-            description: const Text("Component updates available."),
+            title: Text(context.l10n.registration_failed),
+            description: Text(
+              context.l10n.please_check_your_details_and_try_again,
+            ),
             alignment: Alignment.bottomCenter,
             autoCloseDuration: const Duration(seconds: 2),
             closeButton: const ToastCloseButton(
@@ -69,6 +74,17 @@ class RegisterButtonWidget extends StatelessWidget {
 
         if (state.postRegisterStatus == PostRegisterStatus.success) {
           Navigator.pop(context);
+          await showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (context) {
+              return const RegisterSuccessDialogWidget();
+            },
+          );
+          if (!context.mounted) return;
+          context.router.popUntil(
+            (route) => route.settings.name == LoginSetupRoute.name,
+          );
           return;
         }
       },

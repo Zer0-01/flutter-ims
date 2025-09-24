@@ -9,6 +9,7 @@ class RegisterSuccessDialogWidget extends StatelessWidget {
     return PopScope(
       canPop: false,
       child: Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -25,10 +26,8 @@ class RegisterSuccessDialogWidget extends StatelessWidget {
               Text(context.l10n.you_can_now_log_in_and_start_exploring),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.redAccent,
-                    foregroundColor: Colors.white,
+                child: FilledButton(
+                  style: FilledButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),

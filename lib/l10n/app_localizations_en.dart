@@ -124,4 +124,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get eg_ABC_sdn_bhd => 'e.g. ABC Sdn Bhd';
+
+  @override
+  String get registration_failed => 'Registration Failed';
+
+  @override
+  String get please_check_your_details_and_try_again => 'Please check your details and try again.';
 }

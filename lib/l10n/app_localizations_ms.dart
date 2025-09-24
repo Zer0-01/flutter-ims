@@ -124,4 +124,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get eg_ABC_sdn_bhd => 'e.g. ABC Sdn Bhd';
+
+  @override
+  String get registration_failed => 'Pendaftaran Gagal';
+
+  @override
+  String get please_check_your_details_and_try_again => 'Sila semak maklumat anda dan cuba lagi.';
 }
