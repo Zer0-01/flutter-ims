@@ -5,8 +5,50 @@ import 'package:flutter_ims/presentation/screen/register/organization/widgets/or
 import 'package:flutter_ims/presentation/screen/register/organization/widgets/organization_name_form_widget.dart';
 import 'package:flutter_ims/presentation/screen/register/organization/widgets/register_button_widget.dart';
 
-class OrganizationScreen extends StatelessWidget {
-  const OrganizationScreen({super.key});
+class OrganizationScreen extends StatefulWidget {
+  final String userName;
+  final String userEmail;
+  final String userPhone;
+  final String userDepartment;
+  final String userPosition;
+
+  const OrganizationScreen({
+    super.key,
+    required this.userName,
+    required this.userEmail,
+    required this.userPhone,
+    required this.userDepartment,
+    required this.userPosition,
+  });
+
+  @override
+  State<OrganizationScreen> createState() => _OrganizationScreenState();
+}
+
+class _OrganizationScreenState extends State<OrganizationScreen> {
+  late final TextEditingController organizationNameController;
+  late final TextEditingController organizationEmailController;
+
+  @override
+  void initState() {
+    super.initState();
+    organizationNameController = TextEditingController();
+    organizationEmailController = TextEditingController();
+
+    organizationNameController.addListener(_onChanged);
+    organizationEmailController.addListener(_onChanged);
+  }
+
+  @override
+  void dispose() {
+    organizationNameController.dispose();
+    organizationEmailController.dispose();
+    super.dispose();
+  }
+
+  void _onChanged() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +61,26 @@ class OrganizationScreen extends StatelessWidget {
           icon: const Icon(Icons.chevron_left),
         ),
       ),
-      body: const Column(
+      body: Column(
         spacing: 16,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          OrganizationHeadlineWidget(),
-          OrganizationNameFormWidget(),
-          OrganizationEmailFormWidget(),
-          RegisterButtonWidget(),
+          const OrganizationHeadlineWidget(),
+          OrganizationNameFormWidget(
+            organizationNameController: organizationNameController,
+          ),
+          OrganizationEmailFormWidget(
+            organizationEmailController: organizationEmailController,
+          ),
+          RegisterButtonWidget(
+            organizationNameController: organizationNameController,
+            organizationEmailController: organizationEmailController,
+            userName: widget.userName,
+            userEmail: widget.userEmail,
+            userPhone: widget.userPhone,
+            userDepartment: widget.userDepartment,
+            userPosition: widget.userPosition,
+          ),
         ],
       ),
     );

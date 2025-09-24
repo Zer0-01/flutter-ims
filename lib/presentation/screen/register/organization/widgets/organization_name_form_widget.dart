@@ -3,13 +3,20 @@ import 'package:flutter_ims/presentation/common_widgets/app_text_form_field_widg
 import 'package:flutter_ims/utils/extension.dart';
 
 class OrganizationNameFormWidget extends StatelessWidget {
-  const OrganizationNameFormWidget({super.key});
+  final TextEditingController organizationNameController;
+  const OrganizationNameFormWidget({
+    super.key,
+    required this.organizationNameController,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: AppTextFormFieldWidget(label: Text(context.l10n.name)),
+      child: AppTextFormFieldWidget(
+        controller: organizationNameController,
+        label: Text(context.l10n.name),
+      ),
     );
   }
 }

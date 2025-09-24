@@ -19,3 +19,27 @@ class RegisterDtoRequest {
 
   Map<String, dynamic> toJson() => _$RegisterDtoRequestToJson(this);
 }
+
+@JsonSerializable()
+class RegisterAdminUser {
+  final String name;
+  final String email;
+  final String phone;
+  final String password;
+  final String? department;
+  final String? position;
+
+  RegisterAdminUser({
+    required this.name,
+    required this.email,
+    required this.phone,
+    required this.password,
+    this.department,
+    this.position,
+  });
+
+  factory RegisterAdminUser.fromJson(Map<String, dynamic> json) =>
+      _$RegisterAdminUserFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RegisterAdminUserToJson(this);
+}

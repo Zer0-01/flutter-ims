@@ -3,13 +3,21 @@ import 'package:flutter_ims/presentation/common_widgets/app_text_form_field_widg
 import 'package:flutter_ims/utils/extension.dart';
 
 class OrganizationEmailFormWidget extends StatelessWidget {
-  const OrganizationEmailFormWidget({super.key});
+  final TextEditingController organizationEmailController;
+
+  const OrganizationEmailFormWidget({
+    super.key,
+    required this.organizationEmailController,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: AppTextFormFieldWidget(label: Text(context.l10n.email)),
+      child: AppTextFormFieldWidget(
+        controller: organizationEmailController,
+        label: Text(context.l10n.email),
+      ),
     );
   }
 }

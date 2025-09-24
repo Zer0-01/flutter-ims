@@ -41,7 +41,15 @@ class ContinueButtonWidget extends StatelessWidget {
                   )
                   ? () {
                     if (formKey.currentState?.validate() ?? false) {
-                      context.router.push(const OrganizationSetupRoute());
+                      context.router.push(
+                        OrganizationSetupRoute(
+                          userName: nameController.text,
+                          userEmail: emailController.text,
+                          userPhone: phoneController.text,
+                          userDepartment: departmentController.text,
+                          userPosition: positionController.text,
+                        ),
+                      );
                     }
                   }
                   : null,

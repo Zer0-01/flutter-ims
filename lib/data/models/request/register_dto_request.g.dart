@@ -19,3 +19,23 @@ Map<String, dynamic> _$RegisterDtoRequestToJson(RegisterDtoRequest instance) =>
       'email': instance.email,
       'password': instance.password,
     };
+
+RegisterAdminUser _$RegisterAdminUserFromJson(Map<String, dynamic> json) =>
+    RegisterAdminUser(
+      name: json['name'] as String,
+      email: json['email'] as String,
+      phone: json['phone'] as String,
+      password: json['password'] as String,
+      department: json['department'] as String?,
+      position: json['position'] as String?,
+    );
+
+Map<String, dynamic> _$RegisterAdminUserToJson(RegisterAdminUser instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'email': instance.email,
+      'phone': instance.phone,
+      'password': instance.password,
+      'department': instance.department,
+      'position': instance.position,
+    };

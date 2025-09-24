@@ -1,32 +1,38 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ims/presentation/screen/register/organization/organization_screen.dart';
+import 'package:flutter_ims/presentation/screen/register/password/password_screen.dart';
 
 @RoutePage()
-class OrganizationSetupScreen extends StatelessWidget {
+class PasswordSetupScreen extends StatelessWidget {
   final String userName;
   final String userEmail;
   final String userPhone;
   final String userDepartment;
   final String userPosition;
+  final String organizationName;
+  final String organizationEmail;
 
-  const OrganizationSetupScreen({
+  const PasswordSetupScreen({
     super.key,
     required this.userName,
     required this.userEmail,
     required this.userPhone,
     required this.userDepartment,
     required this.userPosition,
+    required this.organizationName,
+    required this.organizationEmail,
   });
 
   @override
   Widget build(BuildContext context) {
-    return OrganizationScreen(
+    return PasswordScreen(
       userName: userName,
       userEmail: userEmail,
       userPhone: userPhone,
       userDepartment: userDepartment,
       userPosition: userPosition,
+      organizationName: organizationName,
+      organizationEmail: organizationEmail,
     );
   }
 }

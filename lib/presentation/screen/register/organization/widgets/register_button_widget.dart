@@ -1,8 +1,27 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ims/routes/app_router.gr.dart';
 import 'package:flutter_ims/utils/extension.dart';
 
 class RegisterButtonWidget extends StatelessWidget {
-  const RegisterButtonWidget({super.key});
+  final String userName;
+  final String userEmail;
+  final String userPhone;
+  final String userDepartment;
+  final String userPosition;
+  final TextEditingController organizationNameController;
+  final TextEditingController organizationEmailController;
+
+  const RegisterButtonWidget({
+    super.key,
+    required this.userName,
+    required this.userEmail,
+    required this.userPhone,
+    required this.userDepartment,
+    required this.userPosition,
+    required this.organizationNameController,
+    required this.organizationEmailController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +35,35 @@ class RegisterButtonWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          onPressed: () {},
-          child: Text(context.l10n.register),
+          onPressed:
+              _isEnabled(
+                    organizationName: organizationNameController.text,
+                    organizationEmail: organizationEmailController.text,
+                  )
+                  ? () {
+                    context.router.push(
+                      PasswordSetupRoute(
+                        userName: userName,
+                        userEmail: userEmail,
+                        userPhone: userPhone,
+                        userDepartment: userDepartment,
+                        userPosition: userPosition,
+                        organizationName: organizationNameController.text,
+                        organizationEmail: organizationEmailController.text,
+                      ),
+                    );
+                  }
+                  : null,
+          child: Text(context.l10n.continue_string),
         ),
       ),
     );
+  }
+
+  bool _isEnabled({
+    required String organizationName,
+    required String organizationEmail,
+  }) {
+    return organizationName.isNotEmpty && organizationEmail.isNotEmpty;
   }
 }
