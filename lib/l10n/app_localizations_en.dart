@@ -136,4 +136,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get password_must_be_mixed_case => 'Password must be mixed case';
+
+  @override
+  String get welcome_back => 'Welcome Back!';
 }

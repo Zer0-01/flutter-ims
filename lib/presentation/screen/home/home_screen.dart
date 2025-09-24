@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ims/presentation/screen/home/bloc/home_bloc.dart';
-import 'package:flutter_ims/presentation/screen/home/widgets/product_list_widget.dart';
+import 'package:flutter_ims/presentation/screen/home/widgets/home_app_bar_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,13 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.redAccent,
-        title: const Text("Home"),
-      ),
-      body: const CustomScrollView(slivers: [ProductListWidget()]),
+    return const Scaffold(
+      body: CustomScrollView(slivers: [HomeAppBarWidget()]),
     );
   }
 }

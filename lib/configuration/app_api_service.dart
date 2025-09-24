@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_ims/configuration/app_environment.dart';
+import 'package:flutter_ims/configuration/app_secure_storage.dart';
 
 enum DioMethod { post, get, put, delete }
 
@@ -17,6 +18,7 @@ class AppApiService {
     Map<String, dynamic>? param,
     String? contentType,
     formData,
+    bool useToken = true,
   }) async {
     final Dio dio = Dio(
       BaseOptions(
@@ -24,6 +26,15 @@ class AppApiService {
         contentType: contentType ?? Headers.jsonContentType,
       ),
     );
+
+    if (useToken) {
+      final String? accessToken = await AppSecureStorage().read(
+        SecureStorageKeys.accessToken.name,
+      );
+      if (accessToken != null && accessToken.isNotEmpty) {
+        dio.options.headers["Authorization"] = "Bearer $accessToken";
+      }
+    }
 
     dio.interceptors.add(
       LogInterceptor(

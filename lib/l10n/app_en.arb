@@ -85,5 +85,7 @@
     "password_must_contain_special_character": "Password must contain special character",
     "@password_must_contain_special_character": {},
     "password_must_be_mixed_case": "Password must be mixed case",
-    "@password_must_be_mixed_case": {}
+    "@password_must_be_mixed_case": {},
+    "welcome_back": "Welcome Back!",
+    "@welcome_back": {}
 }

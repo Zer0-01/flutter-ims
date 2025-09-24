@@ -84,5 +84,7 @@
     "password_must_contain_special_character": "Kata laluan mestilah mengandungi aksara khas",
     "@password_must_contain_special_character": {},
     "password_must_be_mixed_case": "Kata laluan mestilah mengandungi huruf besar dan kecil",
-    "@password_must_be_mixed_case": {}
+    "@password_must_be_mixed_case": {},
+    "welcome_back": "Selamat Datang Kembali!",
+    "@welcome_back": {}
 }

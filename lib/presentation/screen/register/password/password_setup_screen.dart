@@ -2,7 +2,6 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ims/data/repository/auth_repository.dart';
-import 'package:flutter_ims/data/repository/user_repository.dart';
 import 'package:flutter_ims/presentation/screen/register/password/bloc/password_bloc.dart';
 import 'package:flutter_ims/presentation/screen/register/password/password_screen.dart';
 

@@ -136,4 +136,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get password_must_be_mixed_case => 'Kata laluan mestilah mengandungi huruf besar dan kecil';
+
+  @override
+  String get welcome_back => 'Selamat Datang Kembali!';
 }

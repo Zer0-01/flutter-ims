@@ -352,6 +352,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password must be mixed case'**
   String get password_must_be_mixed_case;
+
+  /// No description provided for @welcome_back.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Back!'**
+  String get welcome_back;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
