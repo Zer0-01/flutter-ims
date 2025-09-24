@@ -3,17 +3,17 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ims/configuration/app_logger.dart';
 import 'package:flutter_ims/data/models/request/register_dto_request.dart';
-import 'package:flutter_ims/data/repository/user_repository.dart';
+import 'package:flutter_ims/data/repository/auth_repository.dart';
 
 part 'password_event.dart';
 part 'password_state.dart';
 
 class PasswordBloc extends Bloc<PasswordEvent, PasswordState> {
   final AppLogger _logger = AppLogger.getLogger("PasswordBloc");
-  late final UserRepository _userRepository;
+  late final AuthRepository _authRepository;
 
-  PasswordBloc({required UserRepository userRepository})
-    : _userRepository = userRepository,
+  PasswordBloc({required AuthRepository authRepository})
+    : _authRepository = authRepository,
       super(const PasswordState()) {
     on<OnPressedRegisterEvent>(_onPressedRegister);
   }
@@ -85,7 +85,7 @@ class PasswordBloc extends Bloc<PasswordEvent, PasswordState> {
         ),
       );
 
-      await _userRepository.postRegister(
+      await _authRepository.postRegister(
         registerDtoRequest: registerDtoRequest,
       );
 
