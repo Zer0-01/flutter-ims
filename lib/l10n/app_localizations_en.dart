@@ -139,4 +139,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get welcome_back => 'Welcome Back!';
+
+  @override
+  String get categories => 'Categories';
+
+  @override
+  String get products => 'Products';
 }

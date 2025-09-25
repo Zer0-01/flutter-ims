@@ -358,6 +358,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Welcome Back!'**
   String get welcome_back;
+
+  /// No description provided for @categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categories;
+
+  /// No description provided for @products.
+  ///
+  /// In en, this message translates to:
+  /// **'Products'**
+  String get products;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

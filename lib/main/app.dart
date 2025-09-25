@@ -61,6 +61,7 @@ class App extends StatelessWidget {
       onError: Colors.white,
       surface: Colors.white,
       onSurface: Color(0xFF1A1A1A),
+      surfaceDim: Color(0xFFE0E0E0),
       outline: Color(0xFF9E9E9E),
     );
 

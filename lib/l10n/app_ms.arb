@@ -86,5 +86,9 @@
     "password_must_be_mixed_case": "Kata laluan mestilah mengandungi huruf besar dan kecil",
     "@password_must_be_mixed_case": {},
     "welcome_back": "Selamat Datang Kembali!",
-    "@welcome_back": {}
+    "@welcome_back": {},
+    "categories": "Kategori",
+    "@categories": {},
+    "products": "Produk",
+    "@products": {}
 }

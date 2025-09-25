@@ -41,7 +41,7 @@ class LoginButtonWidget extends StatelessWidget {
 
         if (state.postLoginStatus == PostLoginStatus.success) {
           Navigator.pop(context);
-          context.router.replace(const HomeSetupRoute());
+          context.router.replace(const RootSetupRoute());
           return;
         }
       },

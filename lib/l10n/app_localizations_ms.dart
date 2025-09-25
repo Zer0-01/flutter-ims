@@ -139,4 +139,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get welcome_back => 'Selamat Datang Kembali!';
+
+  @override
+  String get categories => 'Kategori';
+
+  @override
+  String get products => 'Produk';
 }
