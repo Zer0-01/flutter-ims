@@ -23,15 +23,15 @@ class CategoryCardWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         spacing: 8,
                         children: [
-                          const Icon(Icons.category),
+                          const Icon(Icons.storage),
                           Text(
-                            state.categoriesTotal.toString(),
+                            state.productsTotal.toString(),
                             style: context.textTheme.headlineSmall?.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
-                            context.l10n.categories,
+                            context.l10n.products,
                             style: context.textTheme.titleMedium?.copyWith(
                               fontWeight: FontWeight.w600,
                             ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ims/data/repository/auth_repository.dart';
 import 'package:flutter_ims/data/repository/category_repository.dart';
+import 'package:flutter_ims/data/repository/product_repository.dart';
 import 'package:flutter_ims/presentation/screen/home/bloc/home_bloc.dart';
 import 'package:flutter_ims/presentation/screen/home/home_screen.dart';
 
@@ -17,6 +18,7 @@ class HomeSetupScreen extends StatelessWidget {
           (context) => HomeBloc(
             authRepository: AuthRepository(),
             categoryRepository: CategoryRepository(),
+            productRepository: ProductRepository(),
           ),
       child: const HomeScreen(),
     );

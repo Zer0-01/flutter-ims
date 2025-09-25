@@ -5,8 +5,10 @@ import 'package:flutter_ims/configuration/app_logger.dart';
 import 'package:flutter_ims/data/models/response/categories_dto_response.dart';
 import 'package:flutter_ims/data/models/response/me_dto_response.dart';
 import 'package:flutter_ims/data/models/response/product_list_dto_response.dart';
+import 'package:flutter_ims/data/models/response/products_dto_response.dart';
 import 'package:flutter_ims/data/repository/auth_repository.dart';
 import 'package:flutter_ims/data/repository/category_repository.dart';
+import 'package:flutter_ims/data/repository/product_repository.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -15,12 +17,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final AppLogger _logger = AppLogger.getLogger("HomeBloc");
   late final AuthRepository _authRepository;
   late final CategoryRepository _categoryRepository;
+  late final ProductRepository _productRepository;
 
   HomeBloc({
     required AuthRepository authRepository,
     required CategoryRepository categoryRepository,
+    required ProductRepository productRepository,
   }) : _authRepository = authRepository,
        _categoryRepository = categoryRepository,
+       _productRepository = productRepository,
        super(const HomeState()) {
     on<OnInitHomeEvent>(_onInitHome);
   }
@@ -31,7 +36,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     _logger.debug("onInitHome");
-    await Future.wait([_getMe(emit), _getCategories(emit)]);
+    await Future.wait([_getMe(emit), _getCategories(emit), _getProducts(emit)]);
   }
 
   //PRIVATE METHODS//
@@ -102,6 +107,43 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           getCategoryStatus: GetCategoryStatus.failure,
           dioTypeGetCategory: DioExceptionType.unknown,
           dioCodeGetCategory: 0,
+        ),
+      );
+    }
+  }
+
+  Future<void> _getProducts(Emitter<HomeState> emit) async {
+    _logger.debug("getProducts");
+    try {
+      emit(state.copyWith(getProductsStatus: GetProductsStatus.loading));
+
+      final ProductsDtoResponse productListDtoResponse =
+          await _productRepository.getProducts();
+      final int productsTotal = productListDtoResponse.pagination.total;
+
+      _logger.debug("productsTotal: $productsTotal");
+
+      emit(
+        state.copyWith(
+          getProductsStatus: GetProductsStatus.success,
+          productsTotal: productsTotal,
+        ),
+      );
+    } on DioException catch (e) {
+      _logger.error("DioException: ${e.response?.statusCode}");
+      emit(
+        state.copyWith(
+          getProductsStatus: GetProductsStatus.failure,
+          dioTypeGetProducts: e.type,
+          dioCodeGetProducts: e.response?.statusCode ?? 0,
+        ),
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(
+          getProductsStatus: GetProductsStatus.failure,
+          dioTypeGetProducts: DioExceptionType.unknown,
+          dioCodeGetProducts: 0,
         ),
       );
     }
