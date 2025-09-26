@@ -370,6 +370,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Products'**
   String get products;
+
+  /// No description provided for @add_category.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Category'**
+  String get add_category;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

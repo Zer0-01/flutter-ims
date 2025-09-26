@@ -91,5 +91,7 @@
     "categories": "Categories",
     "@categories": {},
     "products": "Products",
-    "@products": {}
+    "@products": {},
+    "add_category": "Add Category",
+    "@add_category": {}
 }

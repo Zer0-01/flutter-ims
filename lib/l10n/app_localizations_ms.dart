@@ -145,4 +145,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get products => 'Produk';
+
+  @override
+  String get add_category => 'Tambah Kategori';
 }

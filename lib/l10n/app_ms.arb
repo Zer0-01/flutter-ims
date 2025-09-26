@@ -90,5 +90,7 @@
     "categories": "Kategori",
     "@categories": {},
     "products": "Produk",
-    "@products": {}
+    "@products": {},
+    "add_category": "Tambah Kategori",
+    "@add_category": {}
 }
