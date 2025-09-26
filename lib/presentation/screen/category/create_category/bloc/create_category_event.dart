@@ -9,9 +9,13 @@ sealed class CreateCategoryEvent extends Equatable {
 
 class OnPressedAddButtonEvent extends CreateCategoryEvent {
   final String name;
+  final String description;
 
-  const OnPressedAddButtonEvent({required this.name});
+  const OnPressedAddButtonEvent({
+    required this.name,
+    required this.description,
+  });
 
   @override
-  List<Object> get props => [name];
+  List<Object> get props => [name, description];
 }

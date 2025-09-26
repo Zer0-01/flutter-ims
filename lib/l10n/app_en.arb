@@ -93,5 +93,7 @@
     "products": "Products",
     "@products": {},
     "add_category": "Add Category",
-    "@add_category": {}
+    "@add_category": {},
+    "description": "Description",
+    "@description": {}
 }

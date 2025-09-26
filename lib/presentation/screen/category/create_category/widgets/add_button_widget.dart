@@ -4,8 +4,13 @@ import 'package:flutter_ims/presentation/screen/category/create_category/bloc/cr
 
 class AddButtonWidget extends StatelessWidget {
   final TextEditingController nameController;
+  final TextEditingController descriptionController;
 
-  const AddButtonWidget({super.key, required this.nameController});
+  const AddButtonWidget({
+    super.key,
+    required this.nameController,
+    required this.descriptionController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,10 @@ class AddButtonWidget extends StatelessWidget {
         child: FilledButton(
           onPressed: () {
             context.read<CreateCategoryBloc>().add(
-              OnPressedAddButtonEvent(name: nameController.text),
+              OnPressedAddButtonEvent(
+                name: nameController.text,
+                description: descriptionController.text,
+              ),
             );
           },
           child: const Text("Add"),

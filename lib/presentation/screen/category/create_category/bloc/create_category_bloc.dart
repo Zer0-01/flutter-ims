@@ -25,20 +25,23 @@ class CreateCategoryBloc
   ) async {
     _logger.debug("onPressedAddButton");
     final String name = event.name;
+    final String description = event.description;
     _logger.debug("name: $name");
-    await _postCategory(emit, name: name);
+    _logger.debug("description: $description");
+    await _postCategory(emit, name: name, description: description);
   }
 
   Future<void> _postCategory(
     Emitter<CreateCategoryState> emit, {
     required String name,
+    required String description,
   }) async {
     _logger.debug("postCategory");
     try {
       emit(state.copyWith(postCategoryStatus: PostCategoryStatus.loading));
 
       final CreateCategoryDtoRequest createCategoryDtoRequest =
-          CreateCategoryDtoRequest(name: name);
+          CreateCategoryDtoRequest(name: name, description: description);
 
       await _categoryRepository.postCategory(
         createCategoryDtoRequest: createCategoryDtoRequest,

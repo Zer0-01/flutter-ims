@@ -92,5 +92,7 @@
     "products": "Produk",
     "@products": {},
     "add_category": "Tambah Kategori",
-    "@add_category": {}
+    "@add_category": {},
+    "description": "Keterangan",
+    "@description": {}
 }

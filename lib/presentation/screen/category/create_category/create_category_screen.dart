@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ims/presentation/screen/category/create_category/widgets/add_button_widget.dart';
 import 'package:flutter_ims/presentation/screen/category/create_category/widgets/create_category_app_bar_widget.dart';
-import 'package:flutter_ims/presentation/screen/category/create_category/widgets/name_form_widget.dart';
+import 'package:flutter_ims/presentation/screen/category/create_category/widgets/form_layout_widget.dart';
 import 'package:flutter_ims/utils/extension.dart';
 
 class CreateCategoryScreen extends StatefulWidget {
@@ -13,17 +13,20 @@ class CreateCategoryScreen extends StatefulWidget {
 
 class _CreateCategoryScreenState extends State<CreateCategoryScreen> {
   late final TextEditingController _nameController;
+  late final TextEditingController _descriptionController;
 
   @override
   void initState() {
     super.initState();
     _nameController = TextEditingController();
+    _descriptionController = TextEditingController();
   }
 
   @override
   void dispose() {
     super.dispose();
     _nameController.dispose();
+    _descriptionController.dispose();
   }
 
   @override
@@ -33,8 +36,14 @@ class _CreateCategoryScreenState extends State<CreateCategoryScreen> {
       body: CustomScrollView(
         slivers: [
           const CreateCategoryAppBarWidget(),
-          NameFormWidget(nameController: _nameController),
-          AddButtonWidget(nameController: _nameController),
+          FormLayoutWidget(
+            nameController: _nameController,
+            descriptionController: _descriptionController,
+          ),
+          AddButtonWidget(
+            nameController: _nameController,
+            descriptionController: _descriptionController,
+          ),
         ],
       ),
     );

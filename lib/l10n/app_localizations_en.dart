@@ -148,4 +148,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get add_category => 'Add Category';
+
+  @override
+  String get description => 'Description';
 }
