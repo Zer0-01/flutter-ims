@@ -16,6 +16,7 @@ class CategoryListBloc extends Bloc<CategoryListEvent, CategoryListState> {
     : _categoryRepository = categoryRepository,
       super(const CategoryListState()) {
     on<OnInitCategoryListEvent>(_onInitCategoryListEvent);
+    on<OnRefreshCategoryListEvent>(_onRefreshCategoryListEvent);
   }
 
   //PRIVATE EVENTS//
@@ -24,6 +25,14 @@ class CategoryListBloc extends Bloc<CategoryListEvent, CategoryListState> {
     Emitter<CategoryListState> emit,
   ) async {
     _logger.debug("onInitCategoryList");
+    await Future.wait([_getCategories(emit)]);
+  }
+
+  Future<void> _onRefreshCategoryListEvent(
+    OnRefreshCategoryListEvent event,
+    Emitter<CategoryListState> emit,
+  ) async {
+    _logger.debug("onRefreshCategoryList");
     await Future.wait([_getCategories(emit)]);
   }
 
@@ -38,14 +47,17 @@ class CategoryListBloc extends Bloc<CategoryListEvent, CategoryListState> {
       final CategoriesDtoResponse categoriesDtoResponse =
           await _categoryRepository.getCategories();
 
+      final List<CategoriesData> categories = categoriesDtoResponse.data;
       final int categoriesTotal = categoriesDtoResponse.pagination.total;
 
+      _logger.debug("categories: $categories");
       _logger.debug("categoriesTotal: $categoriesTotal");
 
       emit(
         state.copyWith(
           getCategoryListStatus: GetCategoryListStatus.success,
           categoriesTotal: categoriesTotal,
+          categories: categories,
         ),
       );
     } on DioException catch (e) {

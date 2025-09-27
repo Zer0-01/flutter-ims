@@ -8,6 +8,7 @@ class CategoryListAppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      pinned: true,
       leading: IconButton(
         onPressed: () => context.router.pop(),
         icon: const Icon(Icons.chevron_left),

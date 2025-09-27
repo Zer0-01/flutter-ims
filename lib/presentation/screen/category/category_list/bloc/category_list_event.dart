@@ -13,3 +13,10 @@ class OnInitCategoryListEvent extends CategoryListEvent {
   @override
   List<Object> get props => [];
 }
+
+class OnRefreshCategoryListEvent extends CategoryListEvent {
+  const OnRefreshCategoryListEvent();
+
+  @override
+  List<Object> get props => [];
+}

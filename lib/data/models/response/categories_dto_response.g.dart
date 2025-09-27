@@ -9,6 +9,10 @@ part of 'categories_dto_response.dart';
 CategoriesDtoResponse _$CategoriesDtoResponseFromJson(
   Map<String, dynamic> json,
 ) => CategoriesDtoResponse(
+  data:
+      (json['data'] as List<dynamic>)
+          .map((e) => CategoriesData.fromJson(e as Map<String, dynamic>))
+          .toList(),
   pagination: CategoriesPagination.fromJson(
     json['pagination'] as Map<String, dynamic>,
   ),
@@ -16,7 +20,24 @@ CategoriesDtoResponse _$CategoriesDtoResponseFromJson(
 
 Map<String, dynamic> _$CategoriesDtoResponseToJson(
   CategoriesDtoResponse instance,
-) => <String, dynamic>{'pagination': instance.pagination};
+) => <String, dynamic>{
+  'data': instance.data,
+  'pagination': instance.pagination,
+};
+
+CategoriesData _$CategoriesDataFromJson(Map<String, dynamic> json) =>
+    CategoriesData(
+      id: (json['id'] as num).toInt(),
+      name: json['name'] as String,
+      description: json['description'] as String?,
+    );
+
+Map<String, dynamic> _$CategoriesDataToJson(CategoriesData instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'description': instance.description,
+    };
 
 CategoriesPagination _$CategoriesPaginationFromJson(
   Map<String, dynamic> json,

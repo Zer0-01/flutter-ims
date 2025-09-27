@@ -6,12 +6,14 @@ class CategoryListState extends Equatable {
   final GetCategoryListStatus getCategoryListStatus;
   final DioExceptionType dioTypeGetCategoryList;
   final int dioCodeGetCategoryList;
+  final List<CategoriesData> categories;
   final int categoriesTotal;
 
   const CategoryListState({
     this.getCategoryListStatus = GetCategoryListStatus.initial,
     this.dioTypeGetCategoryList = DioExceptionType.unknown,
     this.dioCodeGetCategoryList = 0,
+    this.categories = const [],
     this.categoriesTotal = 0,
   });
 
@@ -19,6 +21,7 @@ class CategoryListState extends Equatable {
     GetCategoryListStatus? getCategoryListStatus,
     DioExceptionType? dioTypeGetCategoryList,
     int? dioCodeGetCategoryList,
+    List<CategoriesData>? categories,
     int? categoriesTotal,
   }) {
     return CategoryListState(
@@ -28,6 +31,7 @@ class CategoryListState extends Equatable {
           dioTypeGetCategoryList ?? this.dioTypeGetCategoryList,
       dioCodeGetCategoryList:
           dioCodeGetCategoryList ?? this.dioCodeGetCategoryList,
+      categories: categories ?? this.categories,
       categoriesTotal: categoriesTotal ?? this.categoriesTotal,
     );
   }
@@ -37,6 +41,7 @@ class CategoryListState extends Equatable {
     getCategoryListStatus,
     dioTypeGetCategoryList,
     dioCodeGetCategoryList,
+    categories,
     categoriesTotal,
   ];
 }
