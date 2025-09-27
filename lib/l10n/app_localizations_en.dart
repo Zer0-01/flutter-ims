@@ -151,4 +151,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get description => 'Description';
+
+  @override
+  String get verified => 'Verified';
+
+  @override
+  String get not_verified => 'Not Verified';
 }

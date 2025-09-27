@@ -94,5 +94,9 @@
     "add_category": "Tambah Kategori",
     "@add_category": {},
     "description": "Keterangan",
-    "@description": {}
+    "@description": {},
+    "verified": "Disahkan",
+    "@verified": {},
+    "not_verified": "Tidak Disahkan",
+    "@not_verified": {}
 }

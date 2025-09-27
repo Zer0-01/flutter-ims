@@ -151,4 +151,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get description => 'Keterangan';
+
+  @override
+  String get verified => 'Disahkan';
+
+  @override
+  String get not_verified => 'Tidak Disahkan';
 }

@@ -95,5 +95,9 @@
     "add_category": "Add Category",
     "@add_category": {},
     "description": "Description",
-    "@description": {}
+    "@description": {},
+    "verified": "Verified",
+    "@verified": {},
+    "not_verified": "Not Verified",
+    "@not_verified": {}
 }

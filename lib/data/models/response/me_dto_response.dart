@@ -17,8 +17,15 @@ class MeDtoResponse {
 @JsonSerializable()
 class MeData {
   final String name;
+  final String email;
+  @JsonKey(name: 'email_verified')
+  final bool emailVerified;
 
-  MeData(this.name);
+  MeData({
+    required this.name,
+    required this.email,
+    required this.emailVerified,
+  });
 
   factory MeData.fromJson(Map<String, dynamic> json) => _$MeDataFromJson(json);
 
