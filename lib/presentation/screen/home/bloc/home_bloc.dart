@@ -46,8 +46,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     try {
       emit(state.copyWith(getMeStatus: GetMeStatus.loading));
 
-      await Future.delayed(const Duration(seconds: 5));
-
       final MeDtoResponse meDtoResponse = await _authRepository.getMe();
       final String userName = meDtoResponse.data.name;
 
