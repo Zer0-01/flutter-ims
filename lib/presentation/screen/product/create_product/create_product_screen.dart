@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ims/presentation/screen/product/create_product/widgets/create_product_app_bar_widget.dart';
 import 'package:flutter_ims/presentation/screen/product/create_product/widgets/create_product_bottom_bar_widget.dart';
+import 'package:flutter_ims/presentation/screen/product/create_product/widgets/details_and_description_widget.dart';
 import 'package:flutter_ims/presentation/screen/product/create_product/widgets/pricing_and_stock_widget.dart';
 import 'package:flutter_ims/presentation/screen/product/create_product/widgets/product_basic_info_widget.dart';
 import 'package:flutter_ims/utils/extension.dart';
@@ -18,6 +19,8 @@ class _CreateProductScreenState extends State<CreateProductScreen> {
   late final TextEditingController _categoryController;
   late final TextEditingController _costPriceController;
   late final TextEditingController _sellingPriceController;
+  late final TextEditingController _descriptionController;
+  late final TextEditingController _unitController;
 
   @override
   void initState() {
@@ -27,6 +30,8 @@ class _CreateProductScreenState extends State<CreateProductScreen> {
     _skuController = TextEditingController();
     _costPriceController = TextEditingController();
     _sellingPriceController = TextEditingController();
+    _descriptionController = TextEditingController();
+    _unitController = TextEditingController();
   }
 
   @override
@@ -36,6 +41,8 @@ class _CreateProductScreenState extends State<CreateProductScreen> {
     _skuController.dispose();
     _costPriceController.dispose();
     _sellingPriceController.dispose();
+    _descriptionController.dispose();
+    _unitController.dispose();
     super.dispose();
   }
 
@@ -56,6 +63,10 @@ class _CreateProductScreenState extends State<CreateProductScreen> {
               costPriceController: _costPriceController,
               sellingPriceController: _sellingPriceController,
             ),
+            DetailsAndDescriptionWidget(
+              descriptionController: _descriptionController,
+              unitController: _unitController,
+            ),
           ],
         ),
       ),
@@ -65,6 +76,8 @@ class _CreateProductScreenState extends State<CreateProductScreen> {
         skuController: _skuController,
         costPriceController: _costPriceController,
         sellingPriceController: _sellingPriceController,
+        descriptionController: _descriptionController,
+        unitController: _unitController,
       ),
     );
   }

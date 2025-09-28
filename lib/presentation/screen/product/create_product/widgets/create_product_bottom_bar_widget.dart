@@ -9,6 +9,8 @@ class CreateProductBottomBarWidget extends StatelessWidget {
   final TextEditingController categoryController;
   final TextEditingController costPriceController;
   final TextEditingController sellingPriceController;
+  final TextEditingController descriptionController;
+  final TextEditingController unitController;
 
   const CreateProductBottomBarWidget({
     super.key,
@@ -17,6 +19,8 @@ class CreateProductBottomBarWidget extends StatelessWidget {
     required this.categoryController,
     required this.costPriceController,
     required this.sellingPriceController,
+    required this.descriptionController,
+    required this.unitController,
   });
 
   @override
@@ -38,6 +42,8 @@ class CreateProductBottomBarWidget extends StatelessWidget {
                     sellingPrice: sellingPriceController.text,
                     category: categoryController.text,
                     categories: state.categories,
+                    description: descriptionController.text,
+                    unit: unitController.text,
                   ),
                 );
               },

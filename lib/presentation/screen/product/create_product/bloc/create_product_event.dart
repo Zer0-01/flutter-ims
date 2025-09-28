@@ -14,6 +14,8 @@ class OnPressedAddProductEvent extends CreateProductEvent {
   final String sellingPrice;
   final String category;
   final List<CategoriesData> categories;
+  final String description;
+  final String unit;
 
   const OnPressedAddProductEvent({
     required this.name,
@@ -22,6 +24,8 @@ class OnPressedAddProductEvent extends CreateProductEvent {
     required this.sellingPrice,
     required this.category,
     required this.categories,
+    required this.description,
+    required this.unit,
   });
 
   @override
@@ -32,6 +36,8 @@ class OnPressedAddProductEvent extends CreateProductEvent {
     sellingPrice,
     category,
     categories,
+    description,
+    unit,
   ];
 }
 

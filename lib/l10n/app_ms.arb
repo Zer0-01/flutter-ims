@@ -128,5 +128,9 @@
     "no": "Tidak",
     "@no": {},
     "save": "Simpan",
-    "@save": {}
+    "@save": {},
+    "details_and_description": "Maklumat & Keterangan",
+    "@details_and_description": {},
+    "unit": "Unit",
+    "@unit": {}
 }

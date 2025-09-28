@@ -14,6 +14,8 @@ CreateProductDtoRequest _$CreateProductDtoRequestFromJson(
   categoryId: (json['category_id'] as num).toInt(),
   costPrice: (json['cost_price'] as num).toDouble(),
   sellingPrice: (json['selling_price'] as num).toDouble(),
+  description: json['description'] as String,
+  unit: json['unit'] as String,
 );
 
 Map<String, dynamic> _$CreateProductDtoRequestToJson(
@@ -24,4 +26,6 @@ Map<String, dynamic> _$CreateProductDtoRequestToJson(
   'category_id': instance.categoryId,
   'cost_price': instance.costPrice,
   'selling_price': instance.sellingPrice,
+  'description': instance.description,
+  'unit': instance.unit,
 };

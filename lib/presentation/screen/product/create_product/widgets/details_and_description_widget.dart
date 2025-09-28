@@ -3,7 +3,14 @@ import 'package:flutter_ims/presentation/common_widgets/app_text_form_field_widg
 import 'package:flutter_ims/utils/extension.dart';
 
 class DetailsAndDescriptionWidget extends StatelessWidget {
-  const DetailsAndDescriptionWidget({super.key});
+  final TextEditingController descriptionController;
+  final TextEditingController unitController;
+
+  const DetailsAndDescriptionWidget({
+    super.key,
+    required this.descriptionController,
+    required this.unitController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +27,19 @@ class DetailsAndDescriptionWidget extends StatelessWidget {
           spacing: 16,
           children: [
             Text(
-              context.l10n.pricing_and_stock,
+              context.l10n.details_and_description,
               style: context.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
-            AppTextFormFieldWidget(label: Text(context.l10n.cost_price)),
-            AppTextFormFieldWidget(label: Text(context.l10n.selling_price)),
+            AppTextFormFieldWidget(
+              controller: descriptionController,
+              label: Text(context.l10n.description),
+            ),
+            AppTextFormFieldWidget(
+              controller: unitController,
+              label: Text(context.l10n.unit),
+            ),
           ],
         ),
       ),

@@ -202,4 +202,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get save => 'Simpan';
+
+  @override
+  String get details_and_description => 'Maklumat & Keterangan';
+
+  @override
+  String get unit => 'Unit';
 }

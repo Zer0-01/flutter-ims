@@ -12,6 +12,8 @@ class CreateProductDtoRequest {
   final double costPrice;
   @JsonKey(name: 'selling_price')
   final double sellingPrice;
+  final String description;
+  final String unit;
 
   CreateProductDtoRequest({
     required this.name,
@@ -19,6 +21,8 @@ class CreateProductDtoRequest {
     required this.categoryId,
     required this.costPrice,
     required this.sellingPrice,
+    required this.description,
+    required this.unit,
   });
 
   factory CreateProductDtoRequest.fromJson(Map<String, dynamic> json) =>

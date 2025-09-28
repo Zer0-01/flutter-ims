@@ -129,5 +129,9 @@
     "no": "No",
     "@no": {},
     "save": "Save",
-    "@save": {}
+    "@save": {},
+    "details_and_description": "Details & Description",
+    "@details_and_description": {},
+    "unit": "Unit",
+    "@unit": {}
 }

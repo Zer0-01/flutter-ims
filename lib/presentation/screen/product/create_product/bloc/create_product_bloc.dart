@@ -36,6 +36,8 @@ class CreateProductBloc extends Bloc<CreateProductEvent, CreateProductState> {
     final String costPrice = event.costPrice;
     final String sellingPrice = event.sellingPrice;
     final List<CategoriesData> categories = event.categories;
+    final String description = event.description;
+    final String unit = event.unit;
 
     final int categoryId =
         categories.where((cat) => category == cat.name).first.id;
@@ -50,6 +52,8 @@ class CreateProductBloc extends Bloc<CreateProductEvent, CreateProductState> {
     _logger.debug("categoryId: $categoryId");
     _logger.debug("formattedCostPrice: $formattedCostPrice");
     _logger.debug("formattedSellingPrice: $formattedSellingPrice");
+    _logger.debug("description: $description");
+    _logger.debug("unit: $unit");
 
     final CreateProductDtoRequest createProductDtoRequest =
         CreateProductDtoRequest(
@@ -58,6 +62,8 @@ class CreateProductBloc extends Bloc<CreateProductEvent, CreateProductState> {
           categoryId: categoryId,
           costPrice: formattedCostPrice,
           sellingPrice: formattedSellingPrice,
+          description: description,
+          unit: unit,
         );
 
     await _postProduct(emit, createProductDtoRequest: createProductDtoRequest);
