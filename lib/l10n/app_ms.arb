@@ -106,5 +106,7 @@
     "are_you_sure_you_want_to_log_out_of_your_account": "Adakah anda pasti mahu log keluar daripada akaun anda?",
     "@are_you_sure_you_want_to_log_out_of_your_account": {},
     "cancel": "Batal",
-    "@cancel": {}
+    "@cancel": {},
+    "add_product": "Tambah Produk",
+    "@add_product": {}
 }

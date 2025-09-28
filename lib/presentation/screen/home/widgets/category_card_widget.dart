@@ -18,27 +18,32 @@ class CategoryCardWidget extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        spacing: 8,
-                        children: [
-                          const Icon(Icons.storage),
-                          Text(
-                            state.productsTotal.toString(),
-                            style: context.textTheme.headlineSmall?.copyWith(
-                              fontWeight: FontWeight.bold,
+                  child: GestureDetector(
+                    onTap: () {
+                      context.router.push(const ProductListSetupRoute());
+                    },
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          spacing: 8,
+                          children: [
+                            const Icon(Icons.storage),
+                            Text(
+                              state.productsTotal.toString(),
+                              style: context.textTheme.headlineSmall?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          Text(
-                            context.l10n.products,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.w600,
+                            Text(
+                              context.l10n.products,
+                              style: context.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

@@ -418,6 +418,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cancel'**
   String get cancel;
+
+  /// No description provided for @add_product.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Product'**
+  String get add_product;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

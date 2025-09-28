@@ -107,5 +107,7 @@
     "are_you_sure_you_want_to_log_out_of_your_account": "Are you sure you want to log out of your account?",
     "@are_you_sure_you_want_to_log_out_of_your_account": {},
     "cancel": "Cancel",
-    "@cancel": {}
+    "@cancel": {},
+    "add_product": "Add Product",
+    "@add_product": {}
 }

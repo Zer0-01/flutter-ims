@@ -169,4 +169,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get cancel => 'Batal';
+
+  @override
+  String get add_product => 'Tambah Produk';
 }
