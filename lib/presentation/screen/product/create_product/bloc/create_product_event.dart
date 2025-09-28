@@ -8,7 +8,35 @@ sealed class CreateProductEvent extends Equatable {
 }
 
 class OnPressedAddProductEvent extends CreateProductEvent {
-  const OnPressedAddProductEvent();
+  final String name;
+  final String sku;
+  final String costPrice;
+  final String sellingPrice;
+  final String category;
+  final List<CategoriesData> categories;
+
+  const OnPressedAddProductEvent({
+    required this.name,
+    required this.sku,
+    required this.costPrice,
+    required this.sellingPrice,
+    required this.category,
+    required this.categories,
+  });
+
+  @override
+  List<Object> get props => [
+    name,
+    sku,
+    costPrice,
+    sellingPrice,
+    category,
+    categories,
+  ];
+}
+
+class OnPressedCategoryEvent extends CreateProductEvent {
+  const OnPressedCategoryEvent();
 
   @override
   List<Object> get props => [];

@@ -2,15 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ims/presentation/common_widgets/app_text_form_field_widget.dart';
 import 'package:flutter_ims/utils/extension.dart';
 
-class PricingAndStockWidget extends StatelessWidget {
-  final TextEditingController costPriceController;
-  final TextEditingController sellingPriceController;
-
-  const PricingAndStockWidget({
-    super.key,
-    required this.costPriceController,
-    required this.sellingPriceController,
-  });
+class DetailsAndDescriptionWidget extends StatelessWidget {
+  const DetailsAndDescriptionWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +25,8 @@ class PricingAndStockWidget extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            AppTextFormFieldWidget(
-              controller: costPriceController,
-              label: Text(context.l10n.cost_price),
-            ),
-            AppTextFormFieldWidget(
-              controller: sellingPriceController,
-              label: Text(context.l10n.selling_price),
-            ),
+            AppTextFormFieldWidget(label: Text(context.l10n.cost_price)),
+            AppTextFormFieldWidget(label: Text(context.l10n.selling_price)),
           ],
         ),
       ),
