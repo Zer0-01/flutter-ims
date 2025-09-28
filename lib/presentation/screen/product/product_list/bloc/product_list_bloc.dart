@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ims/configuration/app_logger.dart';
+import 'package:flutter_ims/data/models/response/products_dto_response.dart';
 import 'package:flutter_ims/data/repository/product_repository.dart';
 
 part 'product_list_event.dart';
@@ -31,9 +32,18 @@ class ProductListBloc extends Bloc<ProductListEvent, ProductListState> {
     try {
       emit(state.copyWith(getProductsStatus: GetProductsStatus.loading));
 
-      await _productRepository.getProducts();
+      final ProductsDtoResponse productsDtoResponse =
+          await _productRepository.getProducts();
+      final List<ProductsData> products = productsDtoResponse.data;
 
-      emit(state.copyWith(getProductsStatus: GetProductsStatus.success));
+      _logger.debug("products: $products");
+
+      emit(
+        state.copyWith(
+          getProductsStatus: GetProductsStatus.success,
+          products: products,
+        ),
+      );
     } on DioException catch (e) {
       _logger.error("DioException: ${e.response?.statusCode}");
       _logger.error("DioExceptionType: ${e.type}");
