@@ -442,6 +442,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Barcode'**
   String get barcode;
+
+  /// No description provided for @pricing_and_stock.
+  ///
+  /// In en, this message translates to:
+  /// **'Pricing & Stock'**
+  String get pricing_and_stock;
+
+  /// No description provided for @cost_price.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost Price'**
+  String get cost_price;
+
+  /// No description provided for @selling_price.
+  ///
+  /// In en, this message translates to:
+  /// **'Selling Price'**
+  String get selling_price;
+
+  /// No description provided for @track_stock.
+  ///
+  /// In en, this message translates to:
+  /// **'Track Stock'**
+  String get track_stock;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -181,4 +181,25 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get barcode => 'Barcode';
+
+  @override
+  String get pricing_and_stock => 'Harga & Stok';
+
+  @override
+  String get cost_price => 'Harga Beli';
+
+  @override
+  String get selling_price => 'Harga Jual';
+
+  @override
+  String get track_stock => 'Jejak Stok';
+
+  @override
+  String get yes => 'Ya';
+
+  @override
+  String get no => 'Tidak';
+
+  @override
+  String get save => 'Simpan';
 }

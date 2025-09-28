@@ -115,5 +115,19 @@
     "sku": "SKU",
     "@sku": {},
     "barcode": "Barcode",
-    "@barcode": {}
+    "@barcode": {},
+    "pricing_and_stock": "Pricing & Stock",
+    "@pricing_and_stock": {},
+    "cost_price": "Cost Price",
+    "@cost_price": {},
+    "selling_price": "Selling Price",
+    "@selling_price": {},
+    "track_stock": "Track Stock",
+    "@track_stock": {},
+    "yes": "Yes",
+    "@yes": {},
+    "no": "No",
+    "@no": {},
+    "save": "Save",
+    "@save": {}
 }

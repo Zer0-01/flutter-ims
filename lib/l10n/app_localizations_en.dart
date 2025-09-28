@@ -181,4 +181,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get barcode => 'Barcode';
+
+  @override
+  String get pricing_and_stock => 'Pricing & Stock';
+
+  @override
+  String get cost_price => 'Cost Price';
+
+  @override
+  String get selling_price => 'Selling Price';
+
+  @override
+  String get track_stock => 'Track Stock';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get no => 'No';
+
+  @override
+  String get save => 'Save';
 }

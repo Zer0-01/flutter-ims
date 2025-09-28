@@ -114,5 +114,19 @@
     "sku": "SKU",
     "@sku": {},
     "barcode": "Barcode",
-    "@barcode": {}
+    "@barcode": {},
+    "pricing_and_stock": "Harga & Stok",
+    "@pricing_and_stock": {},
+    "cost_price": "Harga Beli",
+    "@cost_price": {},
+    "selling_price": "Harga Jual",
+    "@selling_price": {},
+    "track_stock": "Jejak Stok",
+    "@track_stock": {},
+    "yes": "Ya",
+    "@yes": {},
+    "no": "Tidak",
+    "@no": {},
+    "save": "Simpan",
+    "@save": {}
 }
