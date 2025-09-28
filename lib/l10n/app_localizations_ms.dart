@@ -172,4 +172,13 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get add_product => 'Tambah Produk';
+
+  @override
+  String get basic_info => 'Maklumat Asas';
+
+  @override
+  String get sku => 'SKU';
+
+  @override
+  String get barcode => 'Barcode';
 }

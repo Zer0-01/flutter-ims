@@ -424,6 +424,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add Product'**
   String get add_product;
+
+  /// No description provided for @basic_info.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic Info'**
+  String get basic_info;
+
+  /// No description provided for @sku.
+  ///
+  /// In en, this message translates to:
+  /// **'SKU'**
+  String get sku;
+
+  /// No description provided for @barcode.
+  ///
+  /// In en, this message translates to:
+  /// **'Barcode'**
+  String get barcode;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

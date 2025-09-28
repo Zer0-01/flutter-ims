@@ -108,5 +108,11 @@
     "cancel": "Batal",
     "@cancel": {},
     "add_product": "Tambah Produk",
-    "@add_product": {}
+    "@add_product": {},
+    "basic_info": "Maklumat Asas",
+    "@basic_info": {},
+    "sku": "SKU",
+    "@sku": {},
+    "barcode": "Barcode",
+    "@barcode": {}
 }

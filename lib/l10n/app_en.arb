@@ -109,5 +109,11 @@
     "cancel": "Cancel",
     "@cancel": {},
     "add_product": "Add Product",
-    "@add_product": {}
+    "@add_product": {},
+    "basic_info": "Basic Info",
+    "@basic_info": {},
+    "sku": "SKU",
+    "@sku": {},
+    "barcode": "Barcode",
+    "@barcode": {}
 }

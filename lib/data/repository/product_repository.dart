@@ -16,4 +16,10 @@ class ProductRepository {
 
     return ProductsDtoResponse.fromJson(response.data);
   }
+
+  Future<void> postProduct() async {
+    _appLogger.debug("postProduct");
+
+    await AppApiService.instance.request(ApiEndpoints.products, DioMethod.post);
+  }
 }
