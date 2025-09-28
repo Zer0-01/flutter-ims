@@ -99,5 +99,13 @@
     "verified": "Verified",
     "@verified": {},
     "not_verified": "Not Verified",
-    "@not_verified": {}
+    "@not_verified": {},
+    "settings": "Settings",
+    "@settings": {},
+    "logout": "Logout",
+    "@logout": {},
+    "are_you_sure_you_want_to_log_out_of_your_account": "Are you sure you want to log out of your account?",
+    "@are_you_sure_you_want_to_log_out_of_your_account": {},
+    "cancel": "Cancel",
+    "@cancel": {}
 }

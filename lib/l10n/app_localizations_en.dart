@@ -157,4 +157,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get not_verified => 'Not Verified';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get logout => 'Logout';
+
+  @override
+  String get are_you_sure_you_want_to_log_out_of_your_account => 'Are you sure you want to log out of your account?';
+
+  @override
+  String get cancel => 'Cancel';
 }

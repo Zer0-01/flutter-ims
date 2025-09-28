@@ -157,4 +157,16 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get not_verified => 'Tidak Disahkan';
+
+  @override
+  String get settings => 'Tetapan';
+
+  @override
+  String get logout => 'Log Keluar';
+
+  @override
+  String get are_you_sure_you_want_to_log_out_of_your_account => 'Adakah anda pasti mahu log keluar daripada akaun anda?';
+
+  @override
+  String get cancel => 'Batal';
 }

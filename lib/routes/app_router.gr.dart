@@ -9,8 +9,8 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i10;
-import 'package:flutter/material.dart' as _i11;
+import 'package:auto_route/auto_route.dart' as _i12;
+import 'package:flutter/material.dart' as _i13;
 import 'package:flutter_ims/presentation/screen/category/category_list/category_list_setup_screen.dart'
     as _i1;
 import 'package:flutter_ims/presentation/screen/category/create_category/create_category_setup_screen.dart'
@@ -29,16 +29,20 @@ import 'package:flutter_ims/presentation/screen/register/register_setup_screen.d
     as _i8;
 import 'package:flutter_ims/presentation/screen/root/root_setup_screen.dart'
     as _i9;
+import 'package:flutter_ims/presentation/screen/settings/settings_setup_screen.dart'
+    as _i10;
+import 'package:flutter_ims/presentation/screen/splash/splash_setup_screen.dart'
+    as _i11;
 
 /// generated route for
 /// [_i1.CategoryListSetupScreen]
-class CategoryListSetupRoute extends _i10.PageRouteInfo<void> {
-  const CategoryListSetupRoute({List<_i10.PageRouteInfo>? children})
+class CategoryListSetupRoute extends _i12.PageRouteInfo<void> {
+  const CategoryListSetupRoute({List<_i12.PageRouteInfo>? children})
     : super(CategoryListSetupRoute.name, initialChildren: children);
 
   static const String name = 'CategoryListSetupRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i1.CategoryListSetupScreen();
@@ -48,13 +52,13 @@ class CategoryListSetupRoute extends _i10.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.CreateCategorySetupScreen]
-class CreateCategorySetupRoute extends _i10.PageRouteInfo<void> {
-  const CreateCategorySetupRoute({List<_i10.PageRouteInfo>? children})
+class CreateCategorySetupRoute extends _i12.PageRouteInfo<void> {
+  const CreateCategorySetupRoute({List<_i12.PageRouteInfo>? children})
     : super(CreateCategorySetupRoute.name, initialChildren: children);
 
   static const String name = 'CreateCategorySetupRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i2.CreateCategorySetupScreen();
@@ -64,13 +68,13 @@ class CreateCategorySetupRoute extends _i10.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.HomeSetupScreen]
-class HomeSetupRoute extends _i10.PageRouteInfo<void> {
-  const HomeSetupRoute({List<_i10.PageRouteInfo>? children})
+class HomeSetupRoute extends _i12.PageRouteInfo<void> {
+  const HomeSetupRoute({List<_i12.PageRouteInfo>? children})
     : super(HomeSetupRoute.name, initialChildren: children);
 
   static const String name = 'HomeSetupRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i3.HomeSetupScreen();
@@ -80,13 +84,13 @@ class HomeSetupRoute extends _i10.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.LoginSetupScreen]
-class LoginSetupRoute extends _i10.PageRouteInfo<void> {
-  const LoginSetupRoute({List<_i10.PageRouteInfo>? children})
+class LoginSetupRoute extends _i12.PageRouteInfo<void> {
+  const LoginSetupRoute({List<_i12.PageRouteInfo>? children})
     : super(LoginSetupRoute.name, initialChildren: children);
 
   static const String name = 'LoginSetupRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i4.LoginSetupScreen();
@@ -97,15 +101,15 @@ class LoginSetupRoute extends _i10.PageRouteInfo<void> {
 /// generated route for
 /// [_i5.OrganizationSetupScreen]
 class OrganizationSetupRoute
-    extends _i10.PageRouteInfo<OrganizationSetupRouteArgs> {
+    extends _i12.PageRouteInfo<OrganizationSetupRouteArgs> {
   OrganizationSetupRoute({
-    _i11.Key? key,
+    _i13.Key? key,
     required String userName,
     required String userEmail,
     required String userPhone,
     required String userDepartment,
     required String userPosition,
-    List<_i10.PageRouteInfo>? children,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
          OrganizationSetupRoute.name,
          args: OrganizationSetupRouteArgs(
@@ -121,7 +125,7 @@ class OrganizationSetupRoute
 
   static const String name = 'OrganizationSetupRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<OrganizationSetupRouteArgs>();
@@ -147,7 +151,7 @@ class OrganizationSetupRouteArgs {
     required this.userPosition,
   });
 
-  final _i11.Key? key;
+  final _i13.Key? key;
 
   final String userName;
 
@@ -188,9 +192,9 @@ class OrganizationSetupRouteArgs {
 
 /// generated route for
 /// [_i6.PasswordSetupScreen]
-class PasswordSetupRoute extends _i10.PageRouteInfo<PasswordSetupRouteArgs> {
+class PasswordSetupRoute extends _i12.PageRouteInfo<PasswordSetupRouteArgs> {
   PasswordSetupRoute({
-    _i11.Key? key,
+    _i13.Key? key,
     required String userName,
     required String userEmail,
     required String userPhone,
@@ -198,7 +202,7 @@ class PasswordSetupRoute extends _i10.PageRouteInfo<PasswordSetupRouteArgs> {
     required String userPosition,
     required String organizationName,
     required String organizationEmail,
-    List<_i10.PageRouteInfo>? children,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
          PasswordSetupRoute.name,
          args: PasswordSetupRouteArgs(
@@ -216,7 +220,7 @@ class PasswordSetupRoute extends _i10.PageRouteInfo<PasswordSetupRouteArgs> {
 
   static const String name = 'PasswordSetupRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<PasswordSetupRouteArgs>();
@@ -246,7 +250,7 @@ class PasswordSetupRouteArgs {
     required this.organizationEmail,
   });
 
-  final _i11.Key? key;
+  final _i13.Key? key;
 
   final String userName;
 
@@ -295,13 +299,13 @@ class PasswordSetupRouteArgs {
 
 /// generated route for
 /// [_i7.ProfileSetupScreen]
-class ProfileSetupRoute extends _i10.PageRouteInfo<void> {
-  const ProfileSetupRoute({List<_i10.PageRouteInfo>? children})
+class ProfileSetupRoute extends _i12.PageRouteInfo<void> {
+  const ProfileSetupRoute({List<_i12.PageRouteInfo>? children})
     : super(ProfileSetupRoute.name, initialChildren: children);
 
   static const String name = 'ProfileSetupRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i7.ProfileSetupScreen();
@@ -311,13 +315,13 @@ class ProfileSetupRoute extends _i10.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i8.RegisterSetupScreen]
-class RegisterSetupRoute extends _i10.PageRouteInfo<void> {
-  const RegisterSetupRoute({List<_i10.PageRouteInfo>? children})
+class RegisterSetupRoute extends _i12.PageRouteInfo<void> {
+  const RegisterSetupRoute({List<_i12.PageRouteInfo>? children})
     : super(RegisterSetupRoute.name, initialChildren: children);
 
   static const String name = 'RegisterSetupRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i8.RegisterSetupScreen();
@@ -327,16 +331,48 @@ class RegisterSetupRoute extends _i10.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.RootSetupScreen]
-class RootSetupRoute extends _i10.PageRouteInfo<void> {
-  const RootSetupRoute({List<_i10.PageRouteInfo>? children})
+class RootSetupRoute extends _i12.PageRouteInfo<void> {
+  const RootSetupRoute({List<_i12.PageRouteInfo>? children})
     : super(RootSetupRoute.name, initialChildren: children);
 
   static const String name = 'RootSetupRoute';
 
-  static _i10.PageInfo page = _i10.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i9.RootSetupScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [_i10.SettingsSetupScreen]
+class SettingsSetupRoute extends _i12.PageRouteInfo<void> {
+  const SettingsSetupRoute({List<_i12.PageRouteInfo>? children})
+    : super(SettingsSetupRoute.name, initialChildren: children);
+
+  static const String name = 'SettingsSetupRoute';
+
+  static _i12.PageInfo page = _i12.PageInfo(
+    name,
+    builder: (data) {
+      return const _i10.SettingsSetupScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [_i11.SplashSetupScreen]
+class SplashSetupRoute extends _i12.PageRouteInfo<void> {
+  const SplashSetupRoute({List<_i12.PageRouteInfo>? children})
+    : super(SplashSetupRoute.name, initialChildren: children);
+
+  static const String name = 'SplashSetupRoute';
+
+  static _i12.PageInfo page = _i12.PageInfo(
+    name,
+    builder: (data) {
+      return const _i11.SplashSetupScreen();
     },
   );
 }

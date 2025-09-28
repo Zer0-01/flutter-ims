@@ -5,7 +5,8 @@ import 'package:flutter_ims/routes/app_router.gr.dart';
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
-    AutoRoute(page: LoginSetupRoute.page, initial: true),
+    AutoRoute(page: SplashSetupRoute.page, initial: true),
+    AutoRoute(page: LoginSetupRoute.page),
     AutoRoute(page: RegisterSetupRoute.page),
     AutoRoute(page: HomeSetupRoute.page),
     AutoRoute(page: OrganizationSetupRoute.page),
@@ -19,5 +20,6 @@ class AppRouter extends RootStackRouter {
     ),
     AutoRoute(page: CategoryListSetupRoute.page),
     AutoRoute(page: CreateCategorySetupRoute.page),
+    AutoRoute(page: SettingsSetupRoute.page),
   ];
 }
