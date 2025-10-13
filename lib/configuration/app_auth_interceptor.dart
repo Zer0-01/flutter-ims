@@ -3,20 +3,21 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter_ims/configuration/app_logger.dart';
 import 'package:flutter_ims/configuration/app_secure_storage.dart';
+import 'package:flutter_ims/data/api_endpoints.dart';
 
 class AppAuthInterceptor extends Interceptor {
   final Dio dio;
   final AppSecureStorage appSecureStorage;
   bool _isRefreshing = false;
   final List<_PendingRequest> _pendingRequests = [];
-  final bool isUseToken;
+  final bool isUseAccessToken;
 
   final AppLogger _logger = AppLogger.getLogger("AppAuthInterceptor");
 
   AppAuthInterceptor({
     required this.dio,
     required this.appSecureStorage,
-    this.isUseToken = true,
+    this.isUseAccessToken = true,
   });
 
   @override
@@ -24,7 +25,7 @@ class AppAuthInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    if (!isUseToken) {
+    if (!isUseAccessToken) {
       return handler.next(options);
     }
 
@@ -76,7 +77,7 @@ class AppAuthInterceptor extends Interceptor {
   }
 
   Future<bool> _refreshToken() async {
-    final refreshToken = await appSecureStorage.read(
+    final String? refreshToken = await appSecureStorage.read(
       SecureStorageKeys.refreshToken.name,
     );
     if (refreshToken == null || refreshToken.isEmpty) {
@@ -84,9 +85,8 @@ class AppAuthInterceptor extends Interceptor {
     }
 
     try {
-      final Dio dio = Dio();
       final response = await dio.post(
-        "Later",
+        ApiEndpoints.refresh,
         data: {'refreshToken': refreshToken},
         options: Options(
           headers: {
@@ -96,8 +96,8 @@ class AppAuthInterceptor extends Interceptor {
           },
         ),
       );
-      final newToken = response.data["accessToken"];
-      final newRefreshToken = response.data["refreshToken"];
+      final String? newToken = response.data["accessToken"];
+      final String? newRefreshToken = response.data["refreshToken"];
 
       if (newToken != null &&
           newToken.isNotEmpty &&

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_ims/configuration/app_auth_interceptor.dart';
 import 'package:flutter_ims/configuration/app_environment.dart';
 import 'package:flutter_ims/configuration/app_secure_storage.dart';
 
@@ -18,7 +19,7 @@ class AppApiService {
     Map<String, dynamic>? param,
     String? contentType,
     formData,
-    bool useToken = true,
+    bool isUseAccessToken = true,
   }) async {
     final Dio dio = Dio(
       BaseOptions(
@@ -27,16 +28,7 @@ class AppApiService {
       ),
     );
 
-    if (useToken) {
-      final String? accessToken = await AppSecureStorage().read(
-        SecureStorageKeys.accessToken.name,
-      );
-      if (accessToken != null && accessToken.isNotEmpty) {
-        dio.options.headers["Authorization"] = "Bearer $accessToken";
-      }
-    }
-
-    dio.interceptors.add(
+    dio.interceptors.addAll([
       LogInterceptor(
         request: true,
         requestHeader: true,
@@ -45,7 +37,12 @@ class AppApiService {
         responseBody: true,
         error: true,
       ),
-    );
+      AppAuthInterceptor(
+        dio: dio,
+        appSecureStorage: AppSecureStorage(),
+        isUseAccessToken: isUseAccessToken,
+      ),
+    ]);
     switch (method) {
       case DioMethod.post:
         return dio.post(endpoint, data: param ?? formData);
