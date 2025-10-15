@@ -38,7 +38,6 @@ class AppApiService {
         error: true,
       ),
       AppAuthInterceptor(
-        dio: dio,
         appSecureStorage: AppSecureStorage(),
         isUseAccessToken: isUseAccessToken,
       ),
