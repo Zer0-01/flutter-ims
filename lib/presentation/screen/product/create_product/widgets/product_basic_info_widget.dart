@@ -62,7 +62,12 @@ class ProductBasicInfoWidget extends StatelessWidget {
         }
       },
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(
+          left: 8.0,
+          top: 8.0,
+          right: 8.0,
+          bottom: 4.0,
+        ),
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
@@ -71,7 +76,7 @@ class ProductBasicInfoWidget extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 16,
+            spacing: 8,
             children: [
               Text(
                 context.l10n.basic_info,
