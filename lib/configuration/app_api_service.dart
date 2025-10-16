@@ -9,48 +9,49 @@ class AppApiService {
   AppApiService._singleton();
   static final AppApiService instance = AppApiService._singleton();
 
-  String get baseUrl {
-    return ProfileConstants.api;
-  }
+  final Dio _dio = Dio(
+      BaseOptions(
+        baseUrl: ProfileConstants.api,
+        contentType: Headers.jsonContentType,
+      ),
+    )
+    ..interceptors.addAll([
+      LogInterceptor(
+        request: true,
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        error: true,
+      ),
+      AppAuthInterceptor(appSecureStorage: AppSecureStorage()),
+    ]);
 
   Future<Response> request(
     String endpoint,
     DioMethod method, {
     Map<String, dynamic>? param,
     String? contentType,
-    formData,
+    dynamic formData,
     bool isUseAccessToken = true,
   }) async {
-    final Dio dio = Dio(
-      BaseOptions(
-        baseUrl: baseUrl,
-        contentType: contentType ?? Headers.jsonContentType,
-      ),
-    );
-
-    dio.interceptors.addAll([
-      LogInterceptor(
-        request: true,
-        requestHeader: true,
-        requestBody: true,
-        responseHeader: false,
-        responseBody: true,
-        error: true,
-      ),
+    // update access-token usage dynamically
+    _dio.interceptors.removeWhere((i) => i is AppAuthInterceptor);
+    _dio.interceptors.add(
       AppAuthInterceptor(
         appSecureStorage: AppSecureStorage(),
         isUseAccessToken: isUseAccessToken,
       ),
-    ]);
+    );
+
     switch (method) {
       case DioMethod.post:
-        return dio.post(endpoint, data: param ?? formData);
+        return _dio.post(endpoint, data: param ?? formData);
       case DioMethod.get:
-        return dio.get(endpoint, queryParameters: param);
+        return _dio.get(endpoint, queryParameters: param);
       case DioMethod.put:
-        return dio.put(endpoint, data: param ?? formData);
+        return _dio.put(endpoint, data: param ?? formData);
       case DioMethod.delete:
-        return dio.delete(endpoint, data: param ?? formData);
+        return _dio.delete(endpoint, data: param ?? formData);
     }
   }
 }

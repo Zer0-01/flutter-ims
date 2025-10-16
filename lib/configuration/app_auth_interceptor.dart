@@ -8,11 +8,11 @@ import 'package:flutter_ims/data/api_endpoints.dart';
 class AppAuthInterceptor extends Interceptor {
   final AppSecureStorage appSecureStorage;
   final bool isUseAccessToken;
-
   final AppLogger _logger = AppLogger.getLogger("AppAuthInterceptor");
 
-  bool _isRefreshing = false;
-  final List<_PendingRequest> _pendingRequests = [];
+  // Shared lock and queue across the app
+  static Completer<bool>? _refreshCompleter;
+  static final List<_PendingRequest> _pendingRequests = [];
 
   AppAuthInterceptor({
     required this.appSecureStorage,
@@ -51,17 +51,36 @@ class AppAuthInterceptor extends Interceptor {
     final completer = Completer<Response>();
     _pendingRequests.add(_PendingRequest(err.requestOptions, completer));
 
-    if (!_isRefreshing) {
-      _isRefreshing = true;
-      final refreshed = await _refreshToken();
+    // If a refresh is already ongoing → wait for it
+    if (_refreshCompleter != null) {
+      _logger.debug("Waiting for ongoing refresh...");
+      final refreshed = await _refreshCompleter!.future;
+      if (refreshed) {
+        final response = await _retryRequest(err.requestOptions);
+        return handler.resolve(response);
+      } else {
+        return handler.reject(err);
+      }
+    }
+
+    // Otherwise, start a new refresh cycle
+    _refreshCompleter = Completer<bool>();
+
+    try {
+      final refreshed = await _doRefreshToken();
+      _refreshCompleter!.complete(refreshed);
 
       if (refreshed) {
-        await _retryAllRequests();
+        await _retryAllPendingRequests();
       } else {
-        _failAllRequests(err);
+        _failAllPendingRequests(err);
       }
-
-      _isRefreshing = false;
+    } catch (e) {
+      _logger.error("Refresh process crashed: $e");
+      _refreshCompleter!.complete(false);
+      _failAllPendingRequests(err);
+    } finally {
+      _refreshCompleter = null;
     }
 
     try {
@@ -75,7 +94,7 @@ class AppAuthInterceptor extends Interceptor {
   bool _isUnauthorized(DioException err) => err.response?.statusCode == 401;
 
   // ------------------- REFRESH TOKEN -------------------
-  Future<bool> _refreshToken() async {
+  Future<bool> _doRefreshToken() async {
     final accessToken = await appSecureStorage.read(
       SecureStorageKeys.accessToken.name,
     );
@@ -103,7 +122,6 @@ class AppAuthInterceptor extends Interceptor {
           headers: {
             'Authorization': 'Bearer $accessToken',
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
           },
         ),
       );
@@ -111,7 +129,7 @@ class AppAuthInterceptor extends Interceptor {
       final newAccessToken = response.data?['data']?['access_token'] as String?;
 
       if (newAccessToken == null || newAccessToken.isEmpty) {
-        _logger.error("Refresh token failed — invalid response");
+        _logger.error("Refresh token failed — invalid response format");
         return false;
       }
 
@@ -130,49 +148,53 @@ class AppAuthInterceptor extends Interceptor {
   }
 
   // ------------------- RETRY -------------------
-  Future<void> _retryAllRequests() async {
+  Future<void> _retryAllPendingRequests() async {
     final requests = List<_PendingRequest>.from(_pendingRequests);
     _pendingRequests.clear();
 
     for (final pending in requests) {
       try {
-        final newAccessToken = await appSecureStorage.read(
-          SecureStorageKeys.accessToken.name,
-        );
-
-        final retryDio = Dio(
-          BaseOptions(
-            baseUrl: pending.requestOptions.baseUrl,
-            contentType: Headers.jsonContentType,
-          ),
-        );
-
-        pending.requestOptions.headers['Authorization'] =
-            'Bearer $newAccessToken';
-
-        final response = await retryDio.request(
-          pending.requestOptions.path,
-          data: pending.requestOptions.data,
-          queryParameters: pending.requestOptions.queryParameters,
-          options: Options(
-            method: pending.requestOptions.method,
-            headers: pending.requestOptions.headers,
-            contentType: pending.requestOptions.contentType,
-            responseType: pending.requestOptions.responseType,
-            followRedirects: pending.requestOptions.followRedirects,
-            validateStatus: pending.requestOptions.validateStatus,
-          ),
-        );
-
+        final response = await _retryRequest(pending.requestOptions);
         pending.completer.complete(response);
       } catch (e) {
-        _logger.error("Retry request failed: $e");
         pending.completer.completeError(e);
       }
     }
   }
 
-  void _failAllRequests(DioException err) {
+  Future<Response> _retryRequest(RequestOptions requestOptions) async {
+    final newAccessToken = await appSecureStorage.read(
+      SecureStorageKeys.accessToken.name,
+    );
+
+    final retryDio = Dio(
+      BaseOptions(
+        baseUrl: requestOptions.baseUrl,
+        contentType: Headers.jsonContentType,
+      ),
+    );
+
+    final clonedHeaders = Map<String, dynamic>.from(requestOptions.headers);
+    clonedHeaders['Authorization'] = 'Bearer $newAccessToken';
+
+    final response = await retryDio.request(
+      requestOptions.path,
+      data: requestOptions.data,
+      queryParameters: requestOptions.queryParameters,
+      options: Options(
+        method: requestOptions.method,
+        headers: clonedHeaders,
+        contentType: requestOptions.contentType,
+        responseType: requestOptions.responseType,
+        followRedirects: requestOptions.followRedirects,
+        validateStatus: requestOptions.validateStatus,
+      ),
+    );
+
+    return response;
+  }
+
+  void _failAllPendingRequests(DioException err) {
     for (final pending in _pendingRequests) {
       pending.completer.completeError(err);
     }
