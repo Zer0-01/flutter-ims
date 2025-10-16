@@ -108,8 +108,7 @@ class AppAuthInterceptor extends Interceptor {
         ),
       );
 
-      final newAccessToken = response.data?['access_token'] as String?;
-      final newRefreshToken = response.data?['refresh_token'] as String?;
+      final newAccessToken = response.data?['data']?['access_token'] as String?;
 
       if (newAccessToken == null || newAccessToken.isEmpty) {
         _logger.error("Refresh token failed — invalid response");
@@ -120,13 +119,6 @@ class AppAuthInterceptor extends Interceptor {
         SecureStorageKeys.accessToken.name,
         newAccessToken,
       );
-
-      if (newRefreshToken != null && newRefreshToken.isNotEmpty) {
-        await appSecureStorage.save(
-          SecureStorageKeys.refreshToken.name,
-          newRefreshToken,
-        );
-      }
 
       _logger.debug("Token refreshed successfully.");
       return true;
